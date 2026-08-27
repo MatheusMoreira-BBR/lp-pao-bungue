@@ -1,0 +1,67 @@
+/* BLOCO 8 do PSD — FAQ (canvas Y 7155 → 7862) */
+.faq {
+  padding: calc(63 * var(--s)) 0 calc(97 * var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq__titulo     { width: calc(101 * var(--s)); }
+.faq__titulo img { width: 100%; }
+
+.faq__lista {
+  width: calc(1324 * var(--s));
+  margin-top: calc(47 * var(--s));
+  display: grid;
+  gap: calc(7 * var(--s));
+}
+
+.faq__item { border-radius: calc(41 * var(--s)); background: var(--branco); overflow: hidden; }
+
+.faq__pergunta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(24 * var(--s));
+  width: 100%;
+  min-height: calc(84 * var(--s));
+  padding: calc(12 * var(--s)) calc(46 * var(--s)) calc(12 * var(--s)) calc(60 * var(--s));
+  font-size: calc(30 * var(--s));
+  text-align: left;
+  color: var(--azul-texto);
+}
+.faq__pergunta:focus-visible { outline: calc(3 * var(--s)) solid var(--azul); outline-offset: calc(-3 * var(--s)); }
+
+.faq__seta {
+  flex: none;
+  width: calc(30 * var(--s));
+  height: calc(30 * var(--s));
+  transition: transform .25s ease;
+}
+.faq__pergunta[aria-expanded="true"] .faq__seta { transform: rotate(180deg); }
+
+.faq__resposta {
+  /* max-width segura ~75 caracteres por linha: a pill tem 1204 px úteis,
+     largos demais para texto corrido nesse corpo. */
+  padding: calc(6 * var(--s)) calc(60 * var(--s)) calc(32 * var(--s));
+  font-size: calc(24 * var(--s));
+  line-height: 1.5;
+  color: var(--azul-texto);
+}
+.faq__resposta[hidden] { display: none; }
+
+@media (max-width: 1023px) {
+  .faq { padding: 48px 20px 56px; }
+  .faq__titulo { width: 80px; }
+
+  .faq__lista { width: min(760px, 100%); margin-top: 28px; gap: 8px; }
+  .faq__item { border-radius: 30px; }
+  .faq__pergunta {
+    min-height: 62px;
+    padding: 12px 22px 12px 26px;
+    font-size: clamp(15px, 3.6vw, 20px);
+    gap: 14px;
+  }
+  .faq__seta { width: 22px; height: 22px; }
+  .faq__resposta { max-width: none; padding: 4px 26px 22px; font-size: clamp(14px, 3.4vw, 18px); }
+}

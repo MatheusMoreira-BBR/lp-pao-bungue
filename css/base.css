@@ -1,0 +1,239 @@
+/* Base: reset, tokens e componentes compartilhados. Origem: LP_PAO_v2.psd (1920 × 8643) */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body, h1, h2, h3, p, ul, ol, li, figure, blockquote, fieldset, legend {
+  margin: 0; padding: 0;
+}
+ul, ol { list-style: none; }
+fieldset { border: 0; min-width: 0; }
+img, svg { display: block; max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+
+:root {
+  /* Hex exatos do PSD. Os três azuis são distintos no arquivo original — não unificar. */
+  --azul:        #01395B;
+  --azul-texto:  #093859;
+  --azul-escuro: #003861;
+  --amarelo:     #F8AF31;
+  --amarelo-luz: #F9BA4E;
+  --branco:      #FFFFFF;
+  --bege:        #E9E4DA;
+
+  --fonte: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* 1 unidade = 1 px do PSD. A página inteira escala com a viewport nos dois sentidos:
+     travar em 1px acima de 1920 quebrava a proporção das seções (o fundo do hero era
+     recortado e o conteúdo posicionado ficava preso à esquerda). */
+  --s: calc(100vw / 1920);
+}
+
+body {
+  font-family: var(--fonte);
+  color: var(--azul-texto);
+  background-color: var(--bege);
+  /* Imagem única, não tile: reproduz a variação tonal do papel ao longo da página. */
+  background-image: url("../assets/bg/fundo-pagina.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% calc(8643 * var(--s));
+  overflow-x: hidden;
+}
+
+section, header, footer { position: relative; }
+
+.dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--dots-cor, rgba(255,255,255,.16)) calc(2 * var(--s)), transparent calc(2.5 * var(--s)));
+  background-size: calc(16 * var(--s)) calc(16 * var(--s));
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(587 * var(--s));
+  height: calc(64 * var(--s));
+  border-radius: calc(30.93 * var(--s));
+  font-size: calc(29.4 * var(--s));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  transition: filter .2s ease, transform .2s ease;
+}
+.botao:hover { filter: brightness(1.07); transform: translateY(calc(-2 * var(--s))); }
+.botao--amarelo { background: var(--amarelo); color: var(--azul); }
+.botao--azul    { background: var(--azul);    color: var(--amarelo); }
+
+/* Formulário — idêntico no hero (BLOCO 1) e no rodapé (BLOCO 9) */
+.form { width: calc(496 * var(--s)); }
+
+.form__campos { display: grid; gap: calc(7 * var(--s)); }
+
+.form__input {
+  width: 100%;
+  height: calc(67 * var(--s));
+  padding: 0 calc(40 * var(--s));
+  border: 0;
+  border-radius: calc(32.5 * var(--s));
+  background: var(--branco);
+  font-size: calc(24 * var(--s));
+  color: var(--azul-texto);
+}
+.form__input::placeholder { color: var(--azul-texto); opacity: 1; }
+.form__input:focus-visible { outline: calc(3 * var(--s)) solid var(--azul); outline-offset: calc(2 * var(--s)); }
+
+.form__grupo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: calc(10 * var(--s)) calc(24 * var(--s));
+  margin-top: calc(33 * var(--s));
+}
+.form__legenda {
+  flex: 1 0 100%;
+  font-size: calc(24 * var(--s));
+  color: var(--azul-texto);
+  margin-bottom: calc(19 * var(--s));
+}
+
+.form__radio, .form__aceite {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(9 * var(--s));
+  font-size: calc(24 * var(--s));
+  color: var(--azul-texto);
+  cursor: pointer;
+}
+.form__radio input, .form__aceite input {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+  margin: 0;
+}
+.form__marca {
+  flex: none;
+  width: calc(18 * var(--s));
+  height: calc(18 * var(--s));
+  background: var(--branco);
+  border-radius: calc(2 * var(--s));
+  display: grid;
+  place-items: center;
+}
+.form__marca::after {
+  content: "";
+  width: calc(10 * var(--s));
+  height: calc(6 * var(--s));
+  border-left: calc(2.5 * var(--s)) solid var(--azul);
+  border-bottom: calc(2.5 * var(--s)) solid var(--azul);
+  transform: rotate(-45deg) translate(calc(1 * var(--s)), calc(-1 * var(--s)));
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+input:checked + .form__marca::after { opacity: 1; }
+input:focus-visible + .form__marca { outline: calc(3 * var(--s)) solid var(--azul); outline-offset: calc(2 * var(--s)); }
+
+.form__lgpd {
+  margin-top: calc(29 * var(--s));
+  width: calc(450 * var(--s));
+  font-size: calc(16 * var(--s));
+  line-height: 1.25;
+  color: var(--azul-texto);
+}
+
+.form__aceite {
+  display: flex;            /* bloco próprio: não divide linha com o botão */
+  width: max-content;
+  margin-top: calc(9 * var(--s));
+  font-size: calc(18 * var(--s));
+}
+
+.form__botao {
+  display: block;
+  margin-top: calc(25 * var(--s));
+  width: calc(262 * var(--s));
+  height: calc(54 * var(--s));
+  border-radius: calc(26 * var(--s));
+  background: var(--azul);
+  color: var(--branco);
+  font-size: calc(24.2 * var(--s));
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: filter .2s ease, transform .2s ease;
+}
+.form__botao:hover { filter: brightness(1.15); transform: translateY(calc(-2 * var(--s))); }
+
+.form__contador {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--s));
+  margin-top: calc(33 * var(--s));
+  color: var(--azul-texto);
+}
+.form__contador img { width: calc(50 * var(--s)); height: auto; }
+.form__contador strong { display: block; font-size: calc(23.2 * var(--s)); font-weight: 600; line-height: 1; }
+.form__contador em     { display: block; margin-top: calc(6 * var(--s)); font-size: calc(17.3 * var(--s)); font-style: normal; line-height: 1; }
+
+.form__aviso {
+  margin-top: calc(14 * var(--s));
+  font-size: calc(17 * var(--s));
+  font-weight: 600;
+  color: var(--azul);
+}
+
+/* No desktop cada bloco é ancorado na coordenada exata do PSD, medida a partir do
+   canto do grupo FORMULARIO (496×531). Abaixo de 1024 px volta ao fluxo normal. */
+@media (min-width: 1024px) {
+  .form { position: relative; height: calc(531 * var(--s)); }
+  .form > * { position: absolute; left: 0; margin: 0 !important; }
+  .form__campos   { top: 0; width: 100%; }
+  .form__grupo    { top: calc(172 * var(--s)); left: calc(38 * var(--s)); width: calc(440 * var(--s)); }
+  .form__lgpd     { top: calc(263 * var(--s)); left: calc(25 * var(--s)); }
+  .form__aceite   { top: calc(352 * var(--s)); left: calc(26 * var(--s)); }
+  .form__botao    { top: calc(396 * var(--s)); left: calc(26 * var(--s)); }
+  .form__contador { top: calc(483 * var(--s)); left: calc(25 * var(--s)); }
+  .form__aviso    { top: calc(545 * var(--s)); left: calc(26 * var(--s)); width: 100%; }
+
+  .form__legenda  { line-height: 1; margin-bottom: calc(18 * var(--s)); }
+  .form__grupo    { display: block; }
+  .form__radio    { line-height: 1; margin-right: calc(22 * var(--s)); }
+  .form__aceite   { line-height: 1; }
+}
+
+/* quebra de linha literal do PSD, só no layout desktop */
+@media (max-width: 1023px) { .quebra-psd { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+/* O PSD só contém a versão desktop; abaixo de 1024 px o layout é reflowado. */
+@media (max-width: 1023px) {
+  :root { --s: 1px; }
+  /* fora do desktop a página é bem mais alta: volta ao tile repetido */
+  body {
+    background-image: url("../assets/bg/texture-paper.jpg");
+    background-repeat: repeat;
+    background-size: 320px;
+  }
+
+  .botao { width: min(587px, 90vw); height: 60px; font-size: clamp(15px, 3.6vw, 22px); border-radius: 30px; }
+
+  .form { width: min(496px, 100%); }
+  .form__input   { height: 58px; font-size: 17px; padding: 0 26px; border-radius: 29px; }
+  .form__legenda { font-size: 17px; margin-bottom: 12px; }
+  .form__radio, .form__aceite { font-size: 17px; }
+  .form__lgpd    { width: 100%; font-size: 13px; }
+  .form__botao   { width: 240px; height: 52px; font-size: 18px; }
+  .form__contador strong { font-size: 20px; }
+  .form__contador em     { font-size: 15px; }
+}
+
+@media (max-width: 600px) {
+  .form__input { height: 54px; font-size: 16px; }
+  .form__botao { width: 100%; }
+}

@@ -1,0 +1,88 @@
+/* BLOCO 9 do PSD — assinatura (canvas Y 7862 → 8643) */
+.assinatura {
+  height: calc(781 * var(--s));
+  background: var(--amarelo);
+  overflow: hidden;
+}
+
+.assinatura__divisor {
+  position: absolute;
+  z-index: 4;
+  left: calc(904 * var(--s));
+  top: calc(-42 * var(--s));
+  width: calc(116 * var(--s));
+}
+
+.assinatura__dots {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(circle, var(--amarelo-luz) calc(2 * var(--s)), transparent calc(2.6 * var(--s)));
+  background-size: calc(16 * var(--s)) calc(16 * var(--s));
+}
+
+.assinatura__texto {
+  position: absolute;
+  z-index: 2;
+  left: calc(265 * var(--s));
+  top: calc(52 * var(--s));
+  width: calc(600 * var(--s));
+}
+.assinatura__adorno { width: calc(157 * var(--s)); margin-left: calc(4 * var(--s)); }
+
+.assinatura__titulo {
+  position: relative;
+  width: calc(577 * var(--s));
+  margin-top: calc(28 * var(--s));
+}
+.assinatura__titulo img:not(.assinatura__linha) { width: 100%; }
+.assinatura__linha {
+  position: absolute;
+  left: calc(152 * var(--s));
+  bottom: calc(-23 * var(--s));
+  width: calc(377 * var(--s));
+}
+
+.assinatura__texto p {
+  margin-top: calc(76 * var(--s));
+  width: calc(570 * var(--s));
+  font-size: calc(30 * var(--s));
+  line-height: 1.23;          /* pitch de 37 px medido no PSD */
+  color: var(--azul-texto);
+}
+.assinatura__texto p strong { font-weight: 600; }
+
+.assinatura__logo { width: calc(211 * var(--s)); height: calc(69 * var(--s)); margin-top: calc(49 * var(--s)); }
+
+.assinatura .form {
+  position: absolute;
+  z-index: 3;
+  left: calc(1035 * var(--s));
+  top: calc(140 * var(--s));
+}
+
+@media (max-width: 1023px) {
+  .assinatura {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 56px;
+  }
+  .assinatura__divisor { left: 50%; top: -32px; width: 90px; transform: translateX(-50%); }
+  .assinatura__dots { background-size: 16px 16px;
+                      background-image: radial-gradient(circle, var(--amarelo-luz) 2px, transparent 2.6px); }
+
+  .assinatura__texto { position: static; width: min(600px, 100%); z-index: 2; }
+  .assinatura__adorno { width: 120px; }
+  .assinatura__titulo { width: min(430px, 100%); margin-top: 16px; }
+  .assinatura__linha  { left: 26%; bottom: -14px; width: 65%; }
+  .assinatura__texto p { margin-top: 40px; width: 100%; font-size: clamp(16px, 4.1vw, 24px); }
+  .assinatura__logo { width: 160px; margin-top: 28px; }
+
+  .assinatura .form { position: static; z-index: 2; margin-top: 40px; }
+  .assinatura .form__grupo,
+  .assinatura .form__lgpd,
+  .assinatura .form__aceite,
+  .assinatura .form__botao,
+  }

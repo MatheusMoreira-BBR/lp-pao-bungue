@@ -1,0 +1,316 @@
+{
+ "canvas": [
+  1920,
+  8643
+ ],
+ "fonte": "LP_PAO_v2.psd",
+ "obs": "x/y = coordenada do asset no canvas do PSD (quando aplicavel)",
+ "assets": [
+  {
+   "file": "apoio/familia-mesa.jpg",
+   "kb": 190.6,
+   "w": 960,
+   "h": 811,
+   "x": 960,
+   "y": 5647
+  },
+  {
+   "file": "apoio/titulo-toda-historia-precisa-de-quem-apoie.png",
+   "kb": 7.9,
+   "w": 621,
+   "h": 153,
+   "x": 181,
+   "y": 5800
+  },
+  {
+   "file": "assinatura/adorno.png",
+   "kb": 2.2,
+   "w": 157,
+   "h": 35
+  },
+  {
+   "file": "assinatura/icone-pao-divisor.png",
+   "kb": 12.0,
+   "w": 116,
+   "h": 86,
+   "x": 904,
+   "y": 7820
+  },
+  {
+   "file": "assinatura/icone-pessoas.png",
+   "kb": 1.8,
+   "w": 50,
+   "h": 42,
+   "x": 1060,
+   "y": 8573
+  },
+  {
+   "file": "assinatura/linha-sublinhado.png",
+   "kb": 1.8,
+   "w": 377,
+   "h": 15
+  },
+  {
+   "file": "assinatura/logo-bunge.svg",
+   "kb": 13.3,
+   "x": 269,
+   "y": 8495
+  },
+  {
+   "file": "assinatura/titulo-o-pao-que-junta-o-brasil-merece.png",
+   "kb": 10.6,
+   "w": 577,
+   "h": 209,
+   "x": 265,
+   "y": 7977
+  },
+  {
+   "file": "bg/fundo-pagina.jpg",
+   "kb": 27.3,
+   "w": 480,
+   "h": 2161,
+   "x": 0,
+   "y": 0
+  },
+  {
+   "file": "bg/texture-paper.jpg",
+   "kb": 17.2,
+   "w": 512,
+   "h": 512
+  },
+  {
+   "file": "depoimentos/avatar-jose.png",
+   "kb": 4.4,
+   "w": 86,
+   "h": 86,
+   "x": 1446,
+   "y": 6874
+  },
+  {
+   "file": "depoimentos/avatar-marcela.png",
+   "kb": 4.2,
+   "w": 86,
+   "h": 86,
+   "x": 844,
+   "y": 6867
+  },
+  {
+   "file": "depoimentos/avatar-rodrigo.png",
+   "kb": 11.5,
+   "w": 86,
+   "h": 86,
+   "x": 248,
+   "y": 6869
+  },
+  {
+   "file": "depoimentos/icon-aspas.png",
+   "kb": 0.4,
+   "w": 26,
+   "h": 18,
+   "x": 176,
+   "y": 6783
+  },
+  {
+   "file": "depoimentos/titulo-tem-uma-historia.png",
+   "kb": 11.6,
+   "w": 1113,
+   "h": 66,
+   "x": 408,
+   "y": 6526
+  },
+  {
+   "file": "faq/titulo-faq.png",
+   "kb": 1.4,
+   "w": 101,
+   "h": 52,
+   "x": 909,
+   "y": 7218
+  },
+  {
+   "file": "hero/adorno-central.png",
+   "kb": 1.9,
+   "w": 95,
+   "h": 36
+  },
+  {
+   "file": "hero/hero-foto-mobile.jpg",
+   "kb": 206.2,
+   "w": 960,
+   "h": 1320,
+   "x": 0,
+   "y": 0
+  },
+  {
+   "file": "hero/hero-fundo.jpg",
+   "kb": 324.4,
+   "w": 1920,
+   "h": 1320,
+   "x": 0,
+   "y": 0
+  },
+  {
+   "file": "hero/icone-paozinho-adorno.png",
+   "kb": 5.4,
+   "w": 459,
+   "h": 97,
+   "x": 1214,
+   "y": 112
+  },
+  {
+   "file": "hero/icone-pessoas.png",
+   "kb": 1.8,
+   "w": 50,
+   "h": 42,
+   "x": 1206,
+   "y": 1190
+  },
+  {
+   "file": "hero/logo-bunge.svg",
+   "kb": 13.3,
+   "x": 1349,
+   "y": 549
+  },
+  {
+   "file": "hero/titulo-o-pao-que-junta-o-brasil.png",
+   "kb": 165.5,
+   "w": 663,
+   "h": 287,
+   "x": 1111,
+   "y": 234
+  },
+  {
+   "file": "historia/icone-pao-divisor.png",
+   "kb": 12.0,
+   "w": 116,
+   "h": 86,
+   "x": 904,
+   "y": 1293
+  },
+  {
+   "file": "historia/mulher-comendo-pao.jpg",
+   "kb": 166.7,
+   "w": 959,
+   "h": 896,
+   "x": 961,
+   "y": 1322
+  },
+  {
+   "file": "historia/trigo-esquerda.png",
+   "kb": 15.7,
+   "w": 616,
+   "h": 775
+  },
+  {
+   "file": "linha-do-tempo/icon-assinatura.png",
+   "kb": 3.3,
+   "w": 54,
+   "h": 54,
+   "x": 1583,
+   "y": 5212
+  },
+  {
+   "file": "linha-do-tempo/icon-check.png",
+   "kb": 2.3,
+   "w": 60,
+   "h": 60,
+   "x": 294,
+   "y": 5490
+  },
+  {
+   "file": "linha-do-tempo/icon-dossie.png",
+   "kb": 1.2,
+   "w": 43,
+   "h": 57,
+   "x": 731,
+   "y": 5210
+  },
+  {
+   "file": "linha-do-tempo/icon-entidades.png",
+   "kb": 5.3,
+   "w": 78,
+   "h": 50,
+   "x": 1139,
+   "y": 5220
+  },
+  {
+   "file": "linha-do-tempo/icon-pedido.png",
+   "kb": 3.4,
+   "w": 50,
+   "h": 64,
+   "x": 299,
+   "y": 5210
+  },
+  {
+   "file": "linha-do-tempo/titulo-essa-historia-ja-comecou.png",
+   "kb": 9.3,
+   "w": 770,
+   "h": 70,
+   "x": 576,
+   "y": 4982
+  },
+  {
+   "file": "mapa/adorno-divisor.png",
+   "kb": 3.0,
+   "w": 145,
+   "h": 55
+  },
+  {
+   "file": "mapa/icon-pin.svg",
+   "kb": 0.8,
+   "x": 1008,
+   "y": 3041
+  },
+  {
+   "file": "mapa/mapa-brasil.png",
+   "kb": 416.9,
+   "w": 770,
+   "h": 796,
+   "x": 560,
+   "y": 2691
+  },
+  {
+   "file": "mapa/pin-location.png",
+   "kb": 2.7,
+   "w": 50,
+   "h": 73,
+   "x": 1008,
+   "y": 3041
+  },
+  {
+   "file": "mapa/titulo-em-cada-canto-do-brasil.png",
+   "kb": 78.3,
+   "w": 879,
+   "h": 91,
+   "x": 526,
+   "y": 2337
+  },
+  {
+   "file": "mapa/titulo-um-nome-diferente.png",
+   "kb": 94.6,
+   "w": 962,
+   "h": 109,
+   "x": 477,
+   "y": 2439
+  },
+  {
+   "file": "mapa/trigo-direita.png",
+   "kb": 15.9,
+   "w": 568,
+   "h": 833
+  },
+  {
+   "file": "mapa/trigo-esquerda.png",
+   "kb": 12.4,
+   "w": 527,
+   "h": 621
+  },
+  {
+   "file": "motivos/titulo-por-que-merece-ser-patrimonio.png",
+   "kb": 11.4,
+   "w": 1074,
+   "h": 57,
+   "x": 423,
+   "y": 3711
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+/* BLOCO 1 do PSD — hero (canvas Y 0 → 1320) */
+.hero {
+  height: calc(1320 * var(--s));
+  background: var(--amarelo);
+  overflow: hidden;
+}
+
+.hero__fundo, .hero__fundo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+}
+
+.hero__adorno-topo { position: absolute; z-index: 4; left: calc(1214 * var(--s)); top: calc(112 * var(--s)); width: calc(459 * var(--s)); }
+.hero__titulo      { position: absolute; z-index: 4; left: calc(1111 * var(--s)); top: calc(234 * var(--s)); width: calc(663 * var(--s)); }
+.hero__logo        { position: absolute; z-index: 5; left: calc(1349 * var(--s)); top: calc(549 * var(--s)); width: calc(190 * var(--s)); height: calc(63 * var(--s)); }
+.hero__adorno-base { position: absolute; z-index: 5; left: calc(1391 * var(--s)); top: calc(634 * var(--s)); width: calc(95 * var(--s)); }
+
+.hero .form {
+  position: absolute;
+  z-index: 2;
+  left: calc(1181 * var(--s));
+  top: calc(706 * var(--s));
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px 56px;
+  }
+  .hero__fundo, .hero__fundo img {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: initial;
+  }
+  .hero__fundo { order: 5; width: min(560px, 100%); margin: 28px auto 0; }
+
+  /* filhos do bloco de conteúdo viram itens do próprio flex do hero,
+     para intercalar a foto entre o título e o formulário */
+  .hero__conteudo { display: contents; }
+  .hero__adorno-topo { order: 1; }
+  .hero__titulo      { order: 2; }
+  .hero__logo        { order: 3; }
+  .hero__adorno-base { order: 4; }
+  .hero .form        { order: 6; }
+
+  .hero__adorno-topo,
+  .hero__titulo,
+  .hero__logo,
+  .hero__adorno-base,
+  .hero .form { position: static; width: auto; z-index: 2; }
+
+  .hero__adorno-topo { width: min(340px, 100%); margin: 0 auto 4px; }
+  .hero__titulo      { width: min(520px, 100%); margin: 0 auto; }
+  .hero__titulo img  { width: 100%; }
+  .hero__logo        { width: 150px; margin: 18px auto 0; }
+  .hero__adorno-base { width: 78px; margin: 10px auto 0; }
+
+  .hero .form { margin: 30px auto 0; }
+  .hero .form__grupo,
+  .hero .form__lgpd,
+  .hero .form__aceite,
+  .hero .form__botao,
+    }

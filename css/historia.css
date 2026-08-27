@@ -1,0 +1,81 @@
+/* BLOCO 2 do PSD — abertura (canvas Y 1320 → 2219) */
+.historia {
+  height: calc(899 * var(--s));
+  background: var(--azul);
+  overflow: hidden;
+}
+
+/* pãozinho que cavalga a borda entre o hero e este bloco (PSD y 1293) */
+.historia__divisor {
+  position: absolute;
+  z-index: 4;
+  left: calc(904 * var(--s));
+  top: calc(-27 * var(--s));
+  width: calc(116 * var(--s));
+}
+
+.historia__dots {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: .5;
+  background-image: radial-gradient(circle, rgba(255,255,255,.22) calc(1.8 * var(--s)), transparent calc(2.4 * var(--s)));
+  background-size: calc(16 * var(--s)) calc(16 * var(--s));
+}
+
+.historia__trigo {
+  position: absolute;
+  z-index: 2;
+  left: calc(-463 * var(--s));
+  top: calc(-546 * var(--s));
+  width: calc(616 * var(--s));
+}
+
+.historia__foto {
+  position: absolute;
+  z-index: 2;
+  left: calc(961 * var(--s));
+  top: calc(2 * var(--s));
+  width: calc(959 * var(--s));
+}
+
+.historia__texto {
+  position: absolute;
+  z-index: 3;
+  left: calc(134 * var(--s));
+  top: calc(294 * var(--s));
+  width: calc(694 * var(--s));
+  font-size: calc(34.4 * var(--s));
+  line-height: 1.22;          /* pitch de 42 px medido no PSD */
+  text-align: center;          /* Justification 2 no PSD */
+  color: var(--branco);
+}
+.historia__destaque { color: var(--amarelo); margin-top: calc(42 * var(--s)); }
+.historia__destaque strong { font-weight: 600; }
+
+@media (max-width: 1023px) {
+  .historia {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px 0;
+  }
+  .historia__divisor { left: 50%; top: -22px; width: 90px; transform: translateX(-50%); }
+  .historia__dots { background-size: 16px 16px;
+                    background-image: radial-gradient(circle, rgba(255,255,255,.22) 1.8px, transparent 2.4px); }
+  .historia__trigo { display: none; }
+
+  .historia__texto {
+    position: static;
+    width: min(700px, 100%);
+    margin: 0 auto;
+    font-size: clamp(17px, 4.2vw, 26px);
+  }
+  .historia__destaque { margin-top: 22px; }
+
+  .historia__foto {
+    position: static;
+    width: min(560px, 100%);
+    margin: 34px auto 0;
+  }
+}

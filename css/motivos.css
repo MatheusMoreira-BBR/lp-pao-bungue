@@ -1,0 +1,68 @@
+/* BLOCO 4 do PSD — motivos (canvas Y 3711 → 4903) */
+.motivos {
+  padding: 0 0 calc(57 * var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.motivos__titulo     { width: calc(1074 * var(--s)); }
+.motivos__titulo img { width: 100%; }
+
+.motivos__lista {
+  display: grid;
+  grid-template-columns: repeat(2, calc(676 * var(--s)));
+  gap: calc(47 * var(--s)) calc(85 * var(--s));
+  margin-top: calc(77 * var(--s));
+}
+
+.motivo {
+  width: calc(676 * var(--s));
+  min-height: calc(413 * var(--s));
+  padding: calc(63 * var(--s)) calc(50 * var(--s)) calc(63 * var(--s)) calc(63 * var(--s));
+  border-radius: calc(40 * var(--s));
+  background: var(--azul);
+}
+.motivo__titulo {
+  font-size: calc(36 * var(--s));
+  font-weight: 600;
+  line-height: 1.22;          /* pitch de 44 px medido no PSD */
+  text-transform: uppercase;
+  color: var(--amarelo);
+}
+.motivo__texto {
+  margin-top: calc(39 * var(--s));
+  font-size: calc(30 * var(--s));
+  font-weight: 400;
+  line-height: 1.2;           /* pitch de 36 px medido no PSD */
+  color: var(--branco);
+}
+
+.motivos__cta { margin-top: calc(62 * var(--s)); }
+
+@media (max-width: 1023px) {
+  .motivos { padding: 8px 20px 56px; }
+  .motivos__titulo { width: min(680px, 100%); }
+
+  .motivos__lista {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 40px;
+    width: min(676px, 100%);
+  }
+  .motivo {
+    width: 100%;
+    min-height: 0;
+    padding: 34px 32px;
+    border-radius: 28px;
+  }
+  .motivo__titulo { font-size: clamp(18px, 4.6vw, 26px); }
+  .motivo__titulo br { display: none; }
+  .motivo__texto  { margin-top: 16px; font-size: clamp(15px, 4vw, 22px); }
+
+  .motivos__cta { margin-top: 40px; }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .motivos__lista { grid-template-columns: repeat(2, 1fr); width: 100%; }
+}

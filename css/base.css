@@ -184,23 +184,26 @@ input:focus-visible + .form__marca { outline: calc(3 * var(--s)) solid var(--azu
   color: var(--azul);
 }
 
-/* No desktop cada bloco é ancorado na coordenada exata do PSD, medida a partir do
-   canto do grupo FORMULARIO (496×531). Abaixo de 1024 px volta ao fluxo normal. */
+/* No desktop o formulário do hero e o do rodapé são ancorados nas coordenadas exatas
+   do PSD, medidas a partir do canto do grupo FORMULARIO (496×531). Abaixo de 1024 px,
+   e no formulário do popup, vale o fluxo normal. */
 @media (min-width: 1024px) {
-  .form { position: relative; height: calc(531 * var(--s)); }
-  .form > * { position: absolute; left: 0; margin: 0 !important; }
-  .form__campos   { top: 0; width: 100%; }
-  .form__grupo    { top: calc(172 * var(--s)); left: calc(38 * var(--s)); width: calc(440 * var(--s)); }
-  .form__lgpd     { top: calc(263 * var(--s)); left: calc(25 * var(--s)); }
-  .form__aceite   { top: calc(352 * var(--s)); left: calc(26 * var(--s)); }
-  .form__botao    { top: calc(396 * var(--s)); left: calc(26 * var(--s)); }
-  .form__contador { top: calc(483 * var(--s)); left: calc(25 * var(--s)); }
-  .form__aviso    { top: calc(545 * var(--s)); left: calc(26 * var(--s)); width: 100%; }
+  .hero .form,
+  .assinatura .form { position: relative; height: calc(531 * var(--s)); }
+  .hero .form > *,
+  .assinatura .form > * { position: absolute; left: 0; margin: 0 !important; }
+  .hero .form__campos, .assinatura .form__campos   { top: 0; width: 100%; }
+  .hero .form__grupo, .assinatura .form__grupo    { top: calc(172 * var(--s)); left: calc(38 * var(--s)); width: calc(440 * var(--s)); }
+  .hero .form__lgpd, .assinatura .form__lgpd     { top: calc(263 * var(--s)); left: calc(25 * var(--s)); }
+  .hero .form__aceite, .assinatura .form__aceite   { top: calc(352 * var(--s)); left: calc(26 * var(--s)); }
+  .hero .form__botao, .assinatura .form__botao    { top: calc(396 * var(--s)); left: calc(26 * var(--s)); }
+  .hero .form__contador, .assinatura .form__contador { top: calc(483 * var(--s)); left: calc(25 * var(--s)); }
+  .hero .form__aviso, .assinatura .form__aviso    { top: calc(545 * var(--s)); left: calc(26 * var(--s)); width: 100%; }
 
   .form__legenda  { line-height: 1; margin-bottom: calc(18 * var(--s)); }
-  .form__grupo    { display: block; }
+  .hero .form__grupo, .assinatura .form__grupo    { display: block; }
   .form__radio    { line-height: 1; margin-right: calc(22 * var(--s)); }
-  .form__aceite   { line-height: 1; }
+  .hero .form__aceite, .assinatura .form__aceite   { line-height: 1; }
 }
 
 /* quebra de linha literal do PSD, só no layout desktop */
@@ -227,13 +230,77 @@ input:focus-visible + .form__marca { outline: calc(3 * var(--s)) solid var(--azu
   .form__input   { height: 58px; font-size: 17px; padding: 0 26px; border-radius: 29px; }
   .form__legenda { font-size: 17px; margin-bottom: 12px; }
   .form__radio, .form__aceite { font-size: 17px; }
-  .form__lgpd    { width: 100%; font-size: 13px; }
-  .form__botao   { width: 240px; height: 52px; font-size: 18px; }
-  .form__contador strong { font-size: 20px; }
-  .form__contador em     { font-size: 15px; }
+  .hero .form__lgpd, .assinatura .form__lgpd    { width: 100%; font-size: 13px; }
+  .hero .form__botao, .assinatura .form__botao   { width: 240px; height: 52px; font-size: 18px; }
+  .hero .form__contador, .assinatura .form__contador strong { font-size: 20px; }
+  .hero .form__contador, .assinatura .form__contador em     { font-size: 15px; }
 }
 
 @media (max-width: 600px) {
   .form__input { height: 54px; font-size: 16px; }
-  .form__botao { width: 100%; }
+  .hero .form__botao, .assinatura .form__botao { width: 100%; }
 }
+
+/* Popup de assinatura — aberto pelos CTAs marcados com data-abre-modal */
+.modal {
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 28px;
+  background: var(--amarelo);
+  color: var(--azul-texto);
+  overflow: visible;
+}
+.modal::backdrop { background: rgba(1, 57, 91, .62); }
+
+.modal__caixa {
+  position: relative;
+  max-height: calc(100vh - 32px);
+  padding: 40px 36px 36px;
+  overflow-y: auto;
+  border-radius: 28px;
+}
+
+.modal__fechar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--azul);
+  transition: background .2s ease;
+}
+.modal__fechar svg { width: 22px; height: 22px; }
+.modal__fechar:hover { background: rgba(1, 57, 91, .1); }
+.modal__fechar:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+
+.modal__titulo {
+  margin-bottom: 24px;
+  padding-right: 40px;
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+/* o formulário do popup usa fluxo normal, não as coordenadas do PSD */
+.form--modal { width: 100%; }
+.form--modal .form__input   { height: 56px; font-size: 17px; padding: 0 24px; border-radius: 28px; }
+.form--modal .form__campos  { gap: 10px; }
+.form--modal .form__grupo   { margin-top: 22px; }
+.form--modal .form__legenda { font-size: 17px; margin-bottom: 12px; }
+.form--modal .form__radio,
+.form--modal .form__aceite  { font-size: 17px; }
+.form--modal .form__lgpd    { width: 100%; margin-top: 18px; font-size: 13px; line-height: 1.4; }
+.form--modal .form__aceite  { margin-top: 12px; }
+.form--modal .form__botao   { width: 100%; height: 54px; margin-top: 20px; font-size: 18px; border-radius: 27px; }
+.form--modal .form__contador       { margin-top: 22px; gap: 12px; }
+.form--modal .form__contador img   { width: 44px; }
+.form--modal .form__contador strong { font-size: 19px; }
+.form--modal .form__contador em     { font-size: 14px; }
+
+body.modal-aberto { overflow: hidden; }

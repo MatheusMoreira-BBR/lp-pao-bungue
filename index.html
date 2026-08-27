@@ -148,7 +148,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </li>
   </ul>
 
-  <a class="botao botao--amarelo motivos__cta" href="#assinar">Quero apoiar esse movimento</a>
+  <a class="botao botao--amarelo motivos__cta" href="#assinar" data-abre-modal>Quero apoiar esse movimento</a>
 </section>
 
 <!-- BLOCO 5 · linha do tempo -->
@@ -178,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li class="etapa etapa--destaque">
         <div class="etapa__disco"><img src="assets/linha-do-tempo/icon-assinatura.png" alt="" aria-hidden="true"></div>
         <h3 class="etapa__nome">Sua assinatura</h3>
-        <a class="etapa__botao" href="#assinar">Assinar</a>
+        <a class="etapa__botao" href="#assinar" data-abre-modal>Assinar</a>
       </li>
     </ol>
   </div>
@@ -193,7 +193,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h2>
     <p>Se o pão francês também faz parte da sua <br class="quebra-psd">história, faça parte desta também.</p>
     <p class="apoio__reforco"><strong>Sua assinatura fortalece o pedido de <br class="quebra-psd">reconhecimento como Patrimônio Cultural <br class="quebra-psd">Imaterial do Brasil.</strong></p>
-    <a class="botao botao--azul" href="#assinar">Quero apoiar esse movimento</a>
+    <a class="botao botao--azul" href="#assinar" data-abre-modal>Quero apoiar esse movimento</a>
   </div>
   <img class="apoio__foto" src="assets/apoio/familia-mesa.jpg"
        alt="Família reunida à mesa da cozinha com uma cesta de pães franceses">
@@ -230,7 +230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </li>
   </ul>
 
-  <a class="botao botao--amarelo depoimentos__cta" href="#assinar">Quero apoiar esse movimento</a>
+  <a class="botao botao--amarelo depoimentos__cta" href="#form-rodape" data-rola-para="#form-rodape">Quero apoiar esse movimento</a>
 </section>
 
 <!-- BLOCO 8 · FAQ -->
@@ -349,6 +349,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
   </form>
 </footer>
+
+<dialog class="modal" id="modal-assinatura" aria-labelledby="modal-titulo">
+  <div class="modal__caixa">
+    <button class="modal__fechar" type="button" data-modal-fechar aria-label="Fechar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </button>
+
+    <h2 class="modal__titulo" id="modal-titulo">Assine a petição</h2>
+
+    <form class="form form--modal" id="form-modal" novalidate>
+      <div class="form__campos">
+        <input class="form__input" type="text" name="nome" placeholder="Nome Completo" autocomplete="name" required>
+        <input class="form__input" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+      </div>
+
+      <fieldset class="form__grupo">
+        <legend class="form__legenda">Você trabalha com panificação?</legend>
+        <label class="form__radio"><input type="radio" name="panificacao-modal" value="sim"><span class="form__marca"></span>Sim</label>
+        <label class="form__radio"><input type="radio" name="panificacao-modal" value="nao"><span class="form__marca"></span>Não</label>
+      </fieldset>
+
+      <p class="form__lgpd">Em atendimento aos princípios regulados na Lei Geral de Proteção de Dados, lei n° 13.709/2018, autorizo o tratamento dos meus dados pessoais, em respeito aos interesses e finalidades aqui propostos.</p>
+
+      <label class="form__aceite"><input type="checkbox" name="aceite" required><span class="form__marca"></span>Aceito</label>
+
+      <button class="form__botao" type="submit">Assine a petição</button>
+
+      <p class="form__contador">
+        <img src="assets/hero/icone-pessoas.png" alt="" aria-hidden="true">
+        <span>
+          <!-- {{XX}}: placeholder do PSD — trocar pelo total dinâmico -->
+          <strong>+ {{XX}} mil pessoas</strong>
+          <em>já apoiam esse movimento</em>
+        </span>
+      </p>
+    </form>
+  </div>
+</dialog>
 
 <script src="js/main.js"></script>
 </body>

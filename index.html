@@ -4,13 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5RKK4KX8');</script>
-<!-- End Google Tag Manager -->
 
 <title>O Pão que Junta o Brasil — Bunge Profissional</title>
 <meta name="description" content="Assine a petição para que o pão francês seja reconhecido como Patrimônio Cultural Imaterial do Brasil.">
@@ -19,25 +17,1037 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/hero.css">
-<link rel="stylesheet" href="css/historia.css">
-<link rel="stylesheet" href="css/mapa.css">
-<link rel="stylesheet" href="css/motivos.css">
-<link rel="stylesheet" href="css/linha-do-tempo.css">
-<link rel="stylesheet" href="css/apoio.css">
-<link rel="stylesheet" href="css/depoimentos.css">
-<link rel="stylesheet" href="css/faq.css">
-<link rel="stylesheet" href="css/assinatura.css">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--azul) var(--bege);
+}
+html::-webkit-scrollbar       { width: 10px; }
+html::-webkit-scrollbar-track { background: var(--bege); }
+html::-webkit-scrollbar-thumb { background: var(--azul); border-radius: 5px; }
+body, h1, h2, h3, p, ul, ol, li, figure, blockquote, fieldset, legend {
+  margin: 0; padding: 0;
+}
+ul, ol { list-style: none; }
+fieldset { border: 0; min-width: 0; }
+img, svg { display: block; max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+a { text-decoration: none; color: inherit; }
+
+:root {
+  --azul:        #01395B;
+  --azul-texto:  #093859;
+  --azul-escuro: #003861;
+  --amarelo:     #F8AF31;
+  --amarelo-luz: #F9BA4E;
+  --branco:      #FFFFFF;
+  --bege:        #E9E4DA;
+
+  --fonte: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --s: calc(100vw / 1920);
+}
+
+body {
+  font-family: var(--fonte);
+  color: var(--azul-texto);
+  background-color: var(--bege);
+  background-image: url("assets/bg/fundo-pagina.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% calc(9116 * var(--s));
+  overflow-x: hidden;
+}
+
+section, header, footer { position: relative; }
+
+.dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--dots-cor, rgba(255,255,255,.16)) calc(2 * var(--s)), transparent calc(2.5 * var(--s)));
+  background-size: calc(16 * var(--s)) calc(16 * var(--s));
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(587 * var(--s));
+  height: calc(64 * var(--s));
+  border-radius: calc(30.93 * var(--s));
+  font-size: calc(29.4 * var(--s));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  transition: filter .2s ease, transform .2s ease;
+}
+.botao:hover { filter: brightness(1.07); transform: translateY(calc(-2 * var(--s))); }
+.botao--amarelo { background: var(--amarelo); color: var(--azul); }
+.botao--azul    { background: var(--azul);    color: var(--amarelo); }
+
+.form { width: calc(496 * var(--s)); }
+
+.form__campos { display: grid; gap: calc(7 * var(--s)); }
+
+.form__input {
+  width: 100%;
+  height: calc(67 * var(--s));
+  padding: 0 calc(40 * var(--s));
+  border: 0;
+  border-radius: calc(32.5 * var(--s));
+  background: var(--branco);
+  font-size: calc(24 * var(--s));
+  color: var(--azul-texto);
+}
+.form__input::placeholder { color: var(--azul-texto); opacity: 1; }
+.form__input:focus-visible { outline: calc(3 * var(--s)) solid var(--azul); outline-offset: calc(2 * var(--s)); }
+
+.form__grupo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: calc(10 * var(--s)) calc(24 * var(--s));
+  margin-top: calc(33 * var(--s));
+}
+.form__legenda {
+  flex: 1 0 100%;
+  font-size: calc(24 * var(--s));
+  color: var(--azul-texto);
+  margin-bottom: calc(19 * var(--s));
+}
+
+.form__radio {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(9 * var(--s));
+  font-size: calc(24 * var(--s));
+  color: var(--azul-texto);
+  cursor: pointer;
+}
+.form__radio input {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+  margin: 0;
+}
+.form__marca {
+  flex: none;
+  width: calc(18 * var(--s));
+  height: calc(18 * var(--s));
+  background: var(--branco);
+  border-radius: calc(2 * var(--s));
+  display: grid;
+  place-items: center;
+}
+.form__marca::after {
+  content: "";
+  width: calc(10 * var(--s));
+  height: calc(6 * var(--s));
+  border-left: calc(2.5 * var(--s)) solid var(--azul);
+  border-bottom: calc(2.5 * var(--s)) solid var(--azul);
+  transform: rotate(-45deg) translate(calc(1 * var(--s)), calc(-1 * var(--s)));
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+input:checked + .form__marca::after { opacity: 1; }
+input:focus-visible + .form__marca { outline: calc(3 * var(--s)) solid var(--azul); outline-offset: calc(2 * var(--s)); }
+
+.form__lgpd {
+  margin-top: calc(29 * var(--s));
+  width: calc(450 * var(--s));
+  font-size: calc(16 * var(--s));
+  line-height: 1.25;
+  color: var(--azul-texto);
+}
+
+.form__botao {
+  display: block;
+  margin-top: calc(25 * var(--s));
+  width: calc(337 * var(--s));
+  height: calc(68 * var(--s));
+  border-radius: calc(32.2 * var(--s));
+  background: var(--azul);
+  color: var(--branco);
+  font-size: calc(30.4 * var(--s));
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: filter .2s ease, transform .2s ease;
+}
+.form__botao:hover { filter: brightness(1.15); transform: translateY(calc(-2 * var(--s))); }
+
+.form__aviso {
+  margin-top: calc(14 * var(--s));
+  font-size: calc(17 * var(--s));
+  font-weight: 600;
+  color: var(--azul);
+}
+
+@media (min-width: 1024px) {
+  .hero .form,
+  .assinatura .form { position: relative; height: calc(432 * var(--s)); }
+  .hero .form > *,
+  .assinatura .form > * { position: absolute; left: 0; margin: 0 !important; }
+  .hero .form__campos, .assinatura .form__campos   { top: 0; width: 100%; }
+  .hero .form__grupo, .assinatura .form__grupo    { top: calc(168 * var(--s)); left: calc(38 * var(--s)); width: calc(440 * var(--s)); }
+  .hero .form__lgpd, .assinatura .form__lgpd     { top: calc(262 * var(--s)); left: calc(25 * var(--s)); }
+  .hero .form__botao, .assinatura .form__botao    { top: calc(364 * var(--s)); left: calc(12 * var(--s)); }
+  .hero .form__aviso, .assinatura .form__aviso    { top: calc(444 * var(--s)); left: calc(12 * var(--s)); width: 100%; }
+
+  .form__legenda  { line-height: 1; margin-bottom: calc(18 * var(--s)); }
+  .hero .form__grupo, .assinatura .form__grupo    { display: block; }
+  .form__radio    { line-height: 1; margin-right: calc(22 * var(--s)); }
+}
+
+@media (max-width: 1023px) { .quebra-psd { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+@media (max-width: 1023px) {
+  :root { --s: 1px; }
+  body { background-size: 100% 100%; }
+
+  .botao { width: min(587px, 90vw); height: 60px; font-size: clamp(15px, 3.6vw, 22px); border-radius: 30px; }
+
+  .form { width: min(496px, 100%); }
+  .form__input   { height: 58px; font-size: 17px; padding: 0 26px; border-radius: 29px; }
+  .form__legenda { font-size: 17px; margin-bottom: 12px; }
+  .form__radio { font-size: 17px; }
+  .hero .form__lgpd, .assinatura .form__lgpd    { width: 100%; font-size: 13px; }
+  .hero .form__botao, .assinatura .form__botao   { width: 240px; height: 52px; font-size: 18px; }
+}
+
+@media (max-width: 600px) {
+  .form__input { height: 54px; font-size: 16px; }
+  .hero .form__botao, .assinatura .form__botao { width: 100%; }
+}
+
+.modal {
+  --mw: min(700px, calc(100vw - 40px), calc((100vh - 40px) * 0.90));
+  --m: calc(var(--mw) / 891);
+  width: var(--mw);
+  padding: 0;
+  border: 0;
+  border-radius: calc(40 * var(--m));
+  background: var(--amarelo);
+  color: var(--azul-texto);
+  overflow: hidden;
+}
+@supports (height: 100dvh) {
+  .modal { --mw: min(700px, calc(100vw - 40px), calc((100dvh - 40px) * 0.90)); }
+}
+.modal::backdrop { background: rgba(1, 57, 91, .62); }
+
+.modal__caixa {
+  position: relative;
+  padding: calc(102 * var(--m)) calc(92 * var(--m)) calc(95 * var(--m));
+  background-image: radial-gradient(circle, var(--amarelo-luz) calc(2 * var(--m)), transparent calc(2.6 * var(--m)));
+  background-size: calc(16 * var(--m)) calc(16 * var(--m));
+}
+
+.modal__fechar {
+  position: absolute;
+  top: calc(24 * var(--m));
+  right: calc(24 * var(--m));
+  width: calc(52 * var(--m));
+  height: calc(52 * var(--m));
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--azul);
+  transition: background .2s ease;
+}
+.modal__fechar svg { width: calc(28 * var(--m)); height: calc(28 * var(--m)); }
+.modal__fechar:hover { background: rgba(1, 57, 91, .12); }
+.modal__fechar:focus-visible { outline: calc(3 * var(--m)) solid var(--azul); outline-offset: calc(2 * var(--m)); }
+
+.modal__titulo     { width: calc(672 * var(--m)); margin: 0 auto calc(52 * var(--m)); }
+.modal__titulo img { width: 100%; }
+
+.form--modal { width: 100%; }
+.form--modal .form__campos  { gap: calc(7 * var(--m)); }
+.form--modal .form__input {
+  height: calc(80 * var(--m));
+  padding: 0 calc(45 * var(--m));
+  border-radius: calc(38.3 * var(--m));
+  font-size: max(15px, calc(28.3 * var(--m)));
+}
+.form--modal .form__grupo   { margin-top: calc(38 * var(--m)); margin-left: calc(46 * var(--m)); }
+.form--modal .form__legenda { font-size: max(15px, calc(28.3 * var(--m))); line-height: 1; margin-bottom: calc(24 * var(--m)); }
+.form--modal .form__radio   { font-size: max(15px, calc(28.3 * var(--m))); line-height: 1; margin-right: calc(30 * var(--m)); }
+.form--modal .form__marca   { width: calc(22 * var(--m)); height: calc(22 * var(--m)); }
+.form--modal .form__lgpd {
+  width: calc(621 * var(--m));
+  margin-top: calc(36 * var(--m));
+  margin-left: calc(47 * var(--m));
+  font-size: max(11.5px, calc(18.9 * var(--m)));
+  line-height: 1.32;
+}
+.form--modal .form__botao {
+  width: 100%;
+  max-width: none;
+  height: calc(85 * var(--m));
+  margin-top: calc(47 * var(--m));
+  border-radius: calc(41.2 * var(--m));
+  font-size: max(17px, calc(35.8 * var(--m)));
+}
+.form--modal .form__aviso { margin-top: calc(16 * var(--m)); font-size: calc(20 * var(--m)); }
+
+body.modal-aberto { overflow: hidden; }
+.hero {
+  height: calc(1320 * var(--s));
+  overflow: hidden;
+}
+
+.hero__fundo, .hero__fundo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+}
+
+.hero__adorno-topo { position: absolute; z-index: 4; left: calc(1218 * var(--s)); top: calc(152 * var(--s)); width: calc(459 * var(--s)); }
+.hero__titulo      { position: absolute; z-index: 4; left: calc(1115 * var(--s)); top: calc(274 * var(--s)); width: calc(663 * var(--s)); }
+.hero__logo        { position: absolute; z-index: 5; left: calc(1353 * var(--s)); top: calc(589 * var(--s)); width: calc(190 * var(--s)); height: calc(63 * var(--s)); }
+.hero__adorno-base { position: absolute; z-index: 5; left: calc(1395 * var(--s)); top: calc(674 * var(--s)); width: calc(95 * var(--s)); }
+
+.hero .form {
+  position: absolute;
+  z-index: 2;
+  left: calc(1185 * var(--s));
+  top: calc(746 * var(--s));
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px 56px;
+  }
+  .hero__fundo, .hero__fundo img {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: initial;
+  }
+  .hero__fundo { order: 5; width: min(560px, 100%); margin: 28px auto 0; }
+
+  .hero__conteudo { display: contents; }
+  .hero__adorno-topo { order: 1; }
+  .hero__titulo      { order: 2; }
+  .hero__logo        { order: 3; }
+  .hero__adorno-base { order: 4; }
+  .hero .form        { order: 6; }
+
+  .hero__adorno-topo,
+  .hero__titulo,
+  .hero__logo,
+  .hero__adorno-base,
+  .hero .form { position: static; width: auto; z-index: 2; }
+
+  .hero__adorno-topo { width: min(340px, 100%); margin: 0 auto 4px; }
+  .hero__titulo      { width: min(520px, 100%); margin: 0 auto; }
+  .hero__titulo img  { width: 100%; }
+  .hero__logo        { width: 150px; margin: 18px auto 0; }
+  .hero__adorno-base { width: 78px; margin: 10px auto 0; }
+
+  .hero .form { margin: 30px auto 0; }
+}
+.historia {
+  height: calc(899 * var(--s));
+  background: var(--azul);
+  overflow: hidden;
+}
+
+.historia__divisor {
+  position: absolute;
+  z-index: 4;
+  left: calc(904 * var(--s));
+  top: calc(-27 * var(--s));
+  width: calc(116 * var(--s));
+}
+
+.historia__dots {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: .5;
+  background-image: radial-gradient(circle, rgba(255,255,255,.22) calc(1.8 * var(--s)), transparent calc(2.4 * var(--s)));
+  background-size: calc(16 * var(--s)) calc(16 * var(--s));
+}
+
+.historia__trigo {
+  position: absolute;
+  z-index: 2;
+  left: calc(-463 * var(--s));
+  top: calc(-546 * var(--s));
+  width: calc(616 * var(--s));
+}
+
+.historia__foto {
+  position: absolute;
+  z-index: 2;
+  left: calc(961 * var(--s));
+  top: calc(2 * var(--s));
+  width: calc(959 * var(--s));
+}
+
+.historia__texto {
+  position: absolute;
+  z-index: 3;
+  left: calc(134 * var(--s));
+  top: calc(294 * var(--s));
+  width: calc(694 * var(--s));
+  font-size: calc(34.4 * var(--s));
+  line-height: 1.22;
+  text-align: center;
+  color: var(--branco);
+}
+.historia__destaque { color: var(--amarelo); margin-top: calc(42 * var(--s)); }
+.historia__destaque strong { font-weight: 600; }
+
+@media (max-width: 1023px) {
+  .historia {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px 0;
+  }
+  .historia__divisor { left: 50%; top: -22px; width: 90px; transform: translateX(-50%); }
+  .historia__dots { background-size: 16px 16px;
+                    background-image: radial-gradient(circle, rgba(255,255,255,.22) 1.8px, transparent 2.4px); }
+  .historia__trigo { display: none; }
+
+  .historia__texto {
+    position: static;
+    width: min(700px, 100%);
+    margin: 0 auto;
+    font-size: clamp(17px, 4.2vw, 26px);
+  }
+  .historia__destaque { margin-top: 22px; }
+
+  .historia__foto {
+    position: static;
+    width: min(560px, 100%);
+    margin: 34px auto 0;
+  }
+}
+.mapa {
+  padding: calc(118 * var(--s)) 0 calc(95 * var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mapa__trigo      { position: absolute; z-index: 0; mix-blend-mode: multiply; }
+.mapa__trigo--esq { left: calc(-252 * var(--s)); top: calc(107 * var(--s)); width: calc(527 * var(--s)); }
+.mapa__trigo--dir { left: calc(1582 * var(--s)); top: calc(719 * var(--s)); width: calc(568 * var(--s)); }
+
+.mapa > *:not(.mapa__trigo) { position: relative; z-index: 1; }
+
+.mapa__titulo   { display: flex; flex-direction: column; align-items: center; }
+.mapa__titulo-a { width: calc(879 * var(--s)); }
+.mapa__titulo-b { width: calc(962 * var(--s)); margin-top: calc(11 * var(--s)); }
+
+.mapa__subtitulo {
+  margin-top: calc(40 * var(--s));
+  font-size: calc(41.7 * var(--s));
+  line-height: 1;
+  color: var(--azul-texto);
+  text-align: center;
+}
+
+.mapa__figura {
+  position: relative;
+  width: calc(770 * var(--s));
+  margin-top: calc(62 * var(--s));
+  margin-left: calc(-30 * var(--s));
+}
+.mapa__brasil { width: 100%; }
+
+.mapa__pin {
+  position: absolute;
+  left: var(--px);
+  top: var(--py);
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+}
+.mapa__pin::after {
+  content: "";
+  width: calc(84 * var(--s));
+  height: calc(63 * var(--s));
+  margin-top: calc(15 * var(--s));
+  background: url("assets/mapa/icon-pao.png") center/contain no-repeat;
+}
+.mapa__nome {
+  font-size: calc(20.4 * var(--s));
+  font-weight: 600;
+  color: var(--azul-texto);
+  white-space: nowrap;
+}
+
+.mapa__adorno { width: calc(145 * var(--s)); margin-top: calc(74 * var(--s)); }
+
+@media (max-width: 1023px) {
+  .mapa { padding: 64px 20px 56px; }
+  .mapa__trigo { display: none; }
+
+  .mapa__titulo-a { width: min(560px, 100%); }
+  .mapa__titulo-b { width: min(610px, 100%); margin-top: 8px; }
+  .mapa__subtitulo { margin-top: 26px; font-size: clamp(18px, 4.4vw, 30px); }
+
+  .mapa__figura { width: min(520px, 100%); margin: 32px 0 0; }
+  .mapa__pin::after { width: 56px; height: 42px; margin-top: 8px; }
+  .mapa__nome { font-size: clamp(11px, 2.6vw, 15px); }
+  .mapa__adorno { width: 110px; margin-top: 44px; }
+}
+.motivos {
+  padding: 0 0 calc(58 * var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.motivos__titulo     { width: calc(1074 * var(--s)); }
+.motivos__titulo img { width: 100%; }
+
+.motivos__lista {
+  display: grid;
+  grid-template-columns: repeat(2, calc(676 * var(--s)));
+  grid-template-rows: calc(413 * var(--s)) calc(422 * var(--s));
+  gap: calc(47 * var(--s)) calc(85 * var(--s));
+  margin-top: calc(77 * var(--s));
+}
+
+.motivo {
+  width: calc(676 * var(--s));
+  min-height: calc(413 * var(--s));
+  padding: calc(63 * var(--s)) calc(40 * var(--s)) calc(63 * var(--s)) calc(64 * var(--s));
+  border-radius: calc(55 * var(--s));
+  background: var(--azul);
+}
+.motivo__titulo {
+  font-size: calc(36 * var(--s));
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+  color: var(--amarelo);
+}
+.motivo__texto {
+  margin-top: calc(39 * var(--s));
+  font-size: calc(30 * var(--s));
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--branco);
+}
+
+.motivos__cta { margin-top: calc(54 * var(--s)); }
+
+@media (max-width: 1023px) {
+  .motivos { padding: 8px 20px 56px; }
+  .motivos__titulo { width: min(680px, 100%); }
+
+  .motivos__lista {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-top: 40px;
+    width: min(676px, 100%);
+  }
+  .motivo {
+    width: 100%;
+    min-height: 0;
+    padding: 34px 32px;
+    border-radius: 28px;
+  }
+  .motivo__titulo { font-size: clamp(18px, 4.6vw, 26px); }
+  .motivo__titulo br { display: none; }
+  .motivo__texto  { margin-top: 16px; font-size: clamp(15px, 4vw, 22px); }
+
+  .motivos__cta { margin-top: 40px; }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .motivos__lista { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; width: 100%; }
+}
+.linha {
+  height: calc(879 * var(--s));
+  background: var(--amarelo);
+  padding-top: calc(88 * var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.linha__titulo     { width: calc(926 * var(--s)); }
+.linha__titulo img { width: 100%; }
+
+.linha__subtitulo {
+  margin-top: calc(26 * var(--s));
+  font-size: calc(30.4 * var(--s));
+  line-height: 1;
+  color: var(--azul-texto);
+  text-align: center;
+}
+
+.linha__trilho { display: contents; }
+
+.linha__etapas {
+  position: relative;
+  left: calc(5 * var(--s));
+  width: calc(1716 * var(--s));
+  height: calc(434 * var(--s));
+  margin-top: calc(51 * var(--s));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.linha__etapas::before {
+  content: "";
+  position: absolute;
+  left: calc(201 * var(--s));
+  top: calc(100 * var(--s));
+  width: calc(1328 * var(--s));
+  height: calc(5 * var(--s));
+  background: var(--branco);
+}
+
+.linha__etapas::after {
+  content: "";
+  position: absolute;
+  left: calc(413 * var(--s));
+  top: calc(198 * var(--s));
+  width: calc(5 * var(--s));
+  height: calc(156 * var(--s));
+  background: var(--branco);
+  box-shadow: calc(456 * var(--s)) 0 0 var(--branco);
+}
+
+.etapa {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc(46 * var(--s));
+}
+
+.etapa__disco {
+  width: calc(114 * var(--s));
+  height: calc(114 * var(--s));
+  border-radius: 50%;
+  background: var(--branco);
+  display: grid;
+  place-items: center;
+}
+.etapa__disco img { width: auto; height: calc(58 * var(--s)); }
+.etapa:nth-child(3) .etapa__disco img { height: calc(50 * var(--s)); }
+
+.etapa__nome {
+  margin-top: calc(50 * var(--s));
+  max-width: calc(310 * var(--s));
+  font-size: calc(40.4 * var(--s));
+  font-weight: 500;
+  line-height: 1.19;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--azul-escuro);
+}
+
+.etapa__check { width: calc(60 * var(--s)); margin-top: calc(41 * var(--s)); }
+
+.linha__nota {
+  margin-top: calc(58 * var(--s));
+  font-size: calc(24 * var(--s));
+  font-style: italic;
+  line-height: 1;
+  text-align: center;
+  color: var(--azul-texto);
+}
+
+.etapa--destaque {
+  width: calc(385 * var(--s));
+  justify-self: center;
+  border-radius: calc(42 * var(--s));
+  background: var(--azul-escuro);
+}
+.etapa--destaque .etapa__nome { color: var(--amarelo); font-weight: 700; }
+.etapa__botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(161 * var(--s));
+  height: calc(55 * var(--s));
+  margin-top: calc(35 * var(--s));
+  border-radius: calc(26.2 * var(--s));
+  background: var(--amarelo);
+  color: var(--azul-escuro);
+  font-size: calc(24.2 * var(--s));
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: filter .2s ease;
+}
+.etapa__botao:hover { filter: brightness(1.08); }
+
+@media (max-width: 1023px) {
+  .linha { height: auto; padding: 56px 0; }
+  .linha__titulo { width: min(520px, calc(100% - 40px)); }
+  .linha__subtitulo { width: calc(100% - 40px); margin-top: 20px; font-size: clamp(16px, 4vw, 24px); }
+
+  .linha__trilho {
+    display: block;
+    width: 100%;
+    margin-top: 36px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .linha__etapas {
+    --s: max(0.36px, calc((100vw - 40px) / 1716));
+    left: 0;
+    margin: 0 auto;
+    padding: 0 calc(20 * var(--s));
+    box-sizing: content-box;
+  }
+}
+.apoio {
+  height: calc(795 * var(--s));
+  overflow: hidden;
+}
+
+.apoio__dots {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .45;
+  background-image: radial-gradient(circle, rgba(255,255,255,.75) calc(1.8 * var(--s)), transparent calc(2.4 * var(--s)));
+  background-size: calc(16 * var(--s)) calc(16 * var(--s));
+}
+
+.apoio__foto {
+  position: absolute;
+  z-index: 1;
+  left: calc(959 * var(--s));
+  top: calc(-2 * var(--s));
+  width: calc(961 * var(--s));
+}
+
+.apoio__texto {
+  position: absolute;
+  z-index: 2;
+  left: calc(161 * var(--s));
+  top: calc(104 * var(--s));
+  width: calc(700 * var(--s));
+}
+.apoio__titulo     { width: calc(621 * var(--s)); }
+.apoio__titulo img { width: 100%; }
+
+.apoio__texto p {
+  margin-top: calc(37 * var(--s));
+  width: calc(704 * var(--s));
+  font-size: calc(30.4 * var(--s));
+  line-height: 1.22;
+  color: var(--azul-texto);
+}
+.apoio__reforco { margin-top: calc(12 * var(--s)) !important; }
+.apoio__texto p strong { font-weight: 600; }
+.apoio__texto .botao   { margin-top: calc(39 * var(--s)); }
+
+@media (max-width: 1023px) {
+  .apoio {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 56px 20px 0;
+  }
+  .apoio__dots { background-size: 16px 16px;
+                 background-image: radial-gradient(circle, rgba(255,255,255,.75) 1.8px, transparent 2.4px); }
+
+  .apoio__texto { position: static; width: min(660px, 100%); margin: 0 auto; }
+  .apoio__titulo { width: min(480px, 100%); }
+  .apoio__texto p { margin-top: 28px; width: 100%; font-size: clamp(16px, 4.1vw, 24px); }
+  .apoio__texto .botao { margin-top: 32px; }
+
+  .apoio__foto { position: static; width: min(560px, 100%); margin: 36px auto 0; }
+}
+.depoimentos {
+  height: calc(712 * var(--s));
+  background: var(--azul);
+  padding-top: calc(83 * var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.depoimentos__titulo     { width: calc(1113 * var(--s)); }
+.depoimentos__titulo img { width: 100%; }
+
+.depoimentos__chamada {
+  margin-top: calc(40 * var(--s));
+  font-size: calc(30.4 * var(--s));
+  line-height: 1;
+  color: var(--branco);
+  text-align: center;
+}
+.depoimentos__chamada strong { font-weight: 600; color: var(--amarelo); }
+
+.depoimentos__lista {
+  display: grid;
+  grid-template-columns: repeat(3, calc(525 * var(--s)));
+  gap: calc(54 * var(--s));
+  margin-top: calc(75 * var(--s));
+}
+
+.depoimento {
+  position: relative;
+  width: calc(525 * var(--s));
+  height: calc(209 * var(--s));
+  padding: calc(37 * var(--s)) calc(40 * var(--s)) 0;
+  border: calc(8 * var(--s)) solid var(--amarelo);
+  border-radius: calc(40 * var(--s));
+  background: var(--branco);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.depoimento__aspas {
+  position: absolute;
+  left: calc(50 * var(--s));
+  top: calc(38 * var(--s));
+  width: calc(26 * var(--s));
+}
+
+.depoimento__texto {
+  font-size: calc(28 * var(--s));
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.21;
+  text-align: center;
+  color: var(--azul);
+}
+
+.depoimento__autor {
+  display: flex;
+  align-items: center;
+  gap: calc(7 * var(--s));
+  margin-top: auto;
+  margin-bottom: calc(21 * var(--s));
+  font-size: calc(18 * var(--s));
+  font-weight: 300;
+  color: var(--azul);
+}
+.depoimento__autor img {
+  width: calc(43 * var(--s));
+  height: calc(43 * var(--s));
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.depoimentos__cta { margin-top: calc(66 * var(--s)); }
+
+@media (max-width: 1023px) {
+  .depoimentos { height: auto; padding: 56px 20px; }
+  .depoimentos__titulo { width: min(640px, 100%); }
+  .depoimentos__chamada { margin-top: 22px; font-size: clamp(15px, 3.8vw, 22px); }
+
+  .depoimentos__lista {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 34px;
+    width: min(525px, 100%);
+  }
+  .depoimento {
+    width: 100%;
+    height: auto;
+    min-height: 170px;
+    padding: 30px 26px 0;
+    border-width: 5px;
+    border-radius: 28px;
+  }
+  .depoimento__aspas { left: 26px; top: 24px; width: 20px; }
+  .depoimento__texto { font-size: clamp(16px, 4vw, 22px); }
+  .depoimento__autor { margin-bottom: 16px; font-size: 15px; }
+  .depoimento__autor img { width: 34px; height: 34px; }
+
+  .depoimentos__cta { margin-top: 36px; }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .depoimentos__lista { grid-template-columns: repeat(2, 1fr); width: 100%; max-width: 720px; }
+  .depoimento:last-child { grid-column: 1 / -1; justify-self: center; max-width: 355px; }
+}
+.faq {
+  padding: calc(63 * var(--s)) 0 calc(191 * var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq__titulo     { width: calc(101 * var(--s)); }
+.faq__titulo img { width: 100%; }
+
+.faq__lista {
+  width: calc(1324 * var(--s));
+  margin-top: calc(47 * var(--s));
+  display: grid;
+  gap: calc(7 * var(--s));
+}
+
+.faq__item { border-radius: calc(41 * var(--s)); background: var(--branco); overflow: hidden; }
+
+.faq__pergunta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(24 * var(--s));
+  width: 100%;
+  min-height: calc(84 * var(--s));
+  padding: calc(12 * var(--s)) calc(46 * var(--s)) calc(12 * var(--s)) calc(60 * var(--s));
+  font-size: calc(30 * var(--s));
+  text-align: left;
+  color: var(--azul-texto);
+}
+.faq__pergunta:focus-visible { outline: calc(3 * var(--s)) solid var(--azul); outline-offset: calc(-3 * var(--s)); }
+
+.faq__seta {
+  flex: none;
+  width: calc(30 * var(--s));
+  height: calc(30 * var(--s));
+  transition: transform .25s ease;
+}
+.faq__pergunta[aria-expanded="true"] .faq__seta { transform: rotate(180deg); }
+
+.faq__resposta {
+  padding: calc(6 * var(--s)) calc(60 * var(--s)) calc(32 * var(--s));
+  font-size: calc(24 * var(--s));
+  line-height: 1.5;
+  color: var(--azul-texto);
+}
+.faq__resposta[hidden] { display: none; }
+
+@media (max-width: 1023px) {
+  .faq { padding: 48px 20px 56px; }
+  .faq__titulo { width: 80px; }
+
+  .faq__lista { width: min(760px, 100%); margin-top: 28px; gap: 8px; }
+  .faq__item { border-radius: 30px; }
+  .faq__pergunta {
+    min-height: 62px;
+    padding: 12px 22px 12px 26px;
+    font-size: clamp(15px, 3.6vw, 20px);
+    gap: 14px;
+  }
+  .faq__seta { width: 22px; height: 22px; }
+  .faq__resposta { max-width: none; padding: 4px 26px 22px; font-size: clamp(14px, 3.4vw, 18px); }
+}
+.assinatura {
+  height: calc(844 * var(--s));
+  background: var(--amarelo);
+  overflow: hidden;
+}
+
+.assinatura__divisor {
+  position: absolute;
+  z-index: 4;
+  left: calc(904 * var(--s));
+  top: calc(-42 * var(--s));
+  width: calc(116 * var(--s));
+}
+
+.assinatura__dots {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(circle, var(--amarelo-luz) calc(2 * var(--s)), transparent calc(2.6 * var(--s)));
+  background-size: calc(16 * var(--s)) calc(16 * var(--s));
+}
+
+.assinatura__texto {
+  position: absolute;
+  z-index: 2;
+  left: calc(265 * var(--s));
+  top: calc(52 * var(--s));
+  width: calc(600 * var(--s));
+}
+.assinatura__adorno { width: calc(157 * var(--s)); margin-left: calc(4 * var(--s)); }
+
+.assinatura__titulo {
+  position: relative;
+  width: calc(577 * var(--s));
+  margin-top: calc(28 * var(--s));
+}
+.assinatura__titulo img:not(.assinatura__linha) { width: 100%; }
+.assinatura__linha {
+  position: absolute;
+  left: calc(152 * var(--s));
+  bottom: calc(-23 * var(--s));
+  width: calc(377 * var(--s));
+}
+
+.assinatura__texto p {
+  margin-top: calc(76 * var(--s));
+  width: calc(570 * var(--s));
+  font-size: calc(30.4 * var(--s));
+  line-height: 1.23;
+  color: var(--azul-texto);
+}
+.assinatura__texto p strong { font-weight: 600; }
+
+.assinatura__logo { width: calc(211 * var(--s)); height: calc(69 * var(--s)); margin-top: calc(49 * var(--s)); }
+
+.assinatura .form {
+  position: absolute;
+  z-index: 3;
+  left: calc(1036 * var(--s));
+  top: calc(141 * var(--s));
+}
+
+@media (max-width: 1023px) {
+  .assinatura {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 56px;
+  }
+  .assinatura__divisor { left: 50%; top: -32px; width: 90px; transform: translateX(-50%); }
+  .assinatura__dots { background-size: 16px 16px;
+                      background-image: radial-gradient(circle, var(--amarelo-luz) 2px, transparent 2.6px); }
+
+  .assinatura__texto { position: static; width: min(600px, 100%); z-index: 2; }
+  .assinatura__adorno { width: 120px; }
+  .assinatura__titulo { width: min(430px, 100%); margin-top: 16px; }
+  .assinatura__linha  { left: 26%; bottom: -14px; width: 65%; }
+  .assinatura__texto p { margin-top: 40px; width: 100%; font-size: clamp(16px, 4.1vw, 24px); }
+  .assinatura__logo { width: 160px; margin-top: 28px; }
+
+  .assinatura .form { position: static; z-index: 2; margin-top: 40px; }
+}
+</style>
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RKK4KX8"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-<!-- BLOCO 1 · hero -->
 <header class="hero" id="assinar">
   <picture class="hero__fundo">
     <source media="(max-width: 1023px)" srcset="assets/hero/hero-foto-mobile.jpg">
@@ -51,7 +1061,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="assets/hero/titulo-o-pao-que-junta-o-brasil.png" alt="O pão que junta o Brasil">
     </h1>
     <img class="hero__adorno-base" src="assets/hero/adorno-central.png" alt="" aria-hidden="true">
-    <img class="hero__logo" src="assets/hero/logo-bunge.svg" alt="Bunge Profissional">
+    <img class="hero__logo" src="assets/hero/logo-bunge.png" alt="Bunge Profissional">
 
     <form class="form" id="form-hero" novalidate>
       <div class="form__campos">
@@ -67,165 +1077,151 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p class="form__lgpd">Em atendimento aos princípios regulados na Lei Geral de Proteção de Dados, lei n° 13.709/2018, autorizo o tratamento dos meus dados pessoais, em respeito <br class="quebra-psd">aos interesses e finalidades aqui propostos.</p>
 
-      <label class="form__aceite"><input type="checkbox" name="aceite" required><span class="form__marca"></span>Aceito</label>
 
       <button class="form__botao" type="submit">Assine a petição</button>
 
-      <p class="form__contador">
-        <img src="assets/hero/icone-pessoas.png" alt="" aria-hidden="true">
-        <span>
-          <!-- {{XX}}: placeholder do PSD — trocar pelo total dinâmico -->
-          <strong>+ {{XX}} mil pessoas</strong>
-          <em>já apoiam esse movimento</em>
-        </span>
-      </p>
     </form>
   </div>
 </header>
 
 <main>
 
-<!-- BLOCO 2 · abertura -->
 <section class="historia">
-  <img class="historia__divisor" src="assets/historia/icone-pao-divisor.png" alt="" aria-hidden="true">
+  <img loading="lazy" decoding="async" class="historia__divisor" src="assets/historia/icone-pao-divisor.png" alt="" aria-hidden="true">
   <div class="historia__dots" aria-hidden="true"></div>
-  <img class="historia__trigo" src="assets/historia/trigo-esquerda.png" alt="" aria-hidden="true">
+  <img loading="lazy" decoding="async" class="historia__trigo" src="assets/historia/trigo-esquerda.png" alt="" aria-hidden="true">
   <div class="historia__texto">
     <p>Ele muda de nome, muda de sotaque, <br class="quebra-psd">mas continua ocupando o mesmo lugar <br class="quebra-psd">na mesa e na memória dos brasileiros.</p>
     <p class="historia__destaque">É esse pão que atravessa gerações, faz <br class="quebra-psd">parte da nossa rotina e merece um <br class="quebra-psd">reconhecimento à altura da sua <br class="quebra-psd">importância: <strong>tornar-se Patrimônio <br class="quebra-psd">Cultural Imaterial do Brasil.</strong></p>
   </div>
-  <img class="historia__foto" src="assets/historia/mulher-comendo-pao.jpg"
+  <img loading="lazy" decoding="async" class="historia__foto" src="assets/historia/mulher-comendo-pao.jpg"
        alt="Mulher mordendo um pão francês com manteiga">
 </section>
 
-<!-- BLOCO 3 · mapa -->
 <section class="mapa">
-  <img class="mapa__trigo mapa__trigo--esq" src="assets/mapa/trigo-esquerda.png" alt="" aria-hidden="true">
-  <img class="mapa__trigo mapa__trigo--dir" src="assets/mapa/trigo-direita.png" alt="" aria-hidden="true">
+  <img loading="lazy" decoding="async" class="mapa__trigo mapa__trigo--esq" src="assets/mapa/trigo-esquerda.png" alt="" aria-hidden="true">
+  <img loading="lazy" decoding="async" class="mapa__trigo mapa__trigo--dir" src="assets/mapa/trigo-direita.png" alt="" aria-hidden="true">
 
   <h2 class="mapa__titulo">
-    <img class="mapa__titulo-a" src="assets/mapa/titulo-em-cada-canto-do-brasil.png" alt="Em cada canto do Brasil,">
-    <img class="mapa__titulo-b" src="assets/mapa/titulo-um-nome-diferente.png" alt="um nome diferente.">
+    <img loading="lazy" decoding="async" class="mapa__titulo-a" src="assets/mapa/titulo-em-cada-canto-do-brasil.png" alt="Em cada canto do Brasil,">
+    <img loading="lazy" decoding="async" class="mapa__titulo-b" src="assets/mapa/titulo-um-nome-diferente.png" alt="um nome diferente.">
   </h2>
   <p class="mapa__subtitulo">Mas a mesma lembrança.</p>
 
   <div class="mapa__figura">
-    <img class="mapa__brasil" src="assets/mapa/mapa-brasil.png" alt="Mapa do Brasil com os nomes regionais do pão francês">
+    <img loading="lazy" decoding="async" class="mapa__brasil" src="assets/mapa/mapa-brasil.png" alt="Mapa do Brasil com os nomes regionais do pão francês">
     <ul class="mapa__pins">
-      <li class="mapa__pin" style="--px:40.00%; --py:35.30%"><span class="mapa__nome">Pão Careca</span></li>
-      <li class="mapa__pin" style="--px:72.34%; --py:36.56%"><span class="mapa__nome">Carioquinha</span></li>
-      <li class="mapa__pin" style="--px:61.43%; --py:53.14%"><span class="mapa__nome">Pão de Sal</span></li>
-      <li class="mapa__pin" style="--px:70.26%; --py:66.83%"><span class="mapa__nome">Filão</span></li>
-      <li class="mapa__pin" style="--px:57.01%; --py:75.75%"><span class="mapa__nome">Cacetinho</span></li>
+      <li class="mapa__pin" style="--px:39.09%; --py:34.05%"><span class="mapa__nome">Pão Careca</span></li>
+      <li class="mapa__pin" style="--px:75.97%; --py:42.21%"><span class="mapa__nome">Carioquinha</span></li>
+      <li class="mapa__pin" style="--px:52.21%; --py:59.80%"><span class="mapa__nome">Pão de Sal</span></li>
+      <li class="mapa__pin" style="--px:70.39%; --py:67.34%"><span class="mapa__nome">Pão Francês</span></li>
+      <li class="mapa__pin" style="--px:55.32%; --py:80.90%"><span class="mapa__nome">Cacetinho</span></li>
     </ul>
   </div>
 
-  <img class="mapa__adorno" src="assets/mapa/adorno-divisor.png" alt="" aria-hidden="true">
+  <img loading="lazy" decoding="async" class="mapa__adorno" src="assets/mapa/adorno-divisor.png" alt="" aria-hidden="true">
 </section>
 
-<!-- BLOCO 4 · motivos -->
 <section class="motivos">
   <h2 class="motivos__titulo">
-    <img src="assets/motivos/titulo-por-que-merece-ser-patrimonio.png" alt="Por que ele merece ser patrimônio?">
+    <img loading="lazy" decoding="async" src="assets/motivos/titulo-por-que-merece-ser-patrimonio.png" alt="Por que ele merece ser patrimônio?">
   </h2>
 
   <ul class="motivos__lista">
     <li class="motivo">
       <h3 class="motivo__titulo">Porque ele faz parte <br class="quebra-psd">da nossa história.</h3>
-      <p class="motivo__texto">Está no café antes da escola, no <br class="quebra-psd">intervalo do trabalho, no domingo <br class="quebra-psd">em família e naquele cheirinho <br class="quebra-psd">irresistível da padaria da esquina.</p>
+      <p class="motivo__texto">Está na rotina dos brasileiros há <br class="quebra-psd">gerações e continua presente nos <br class="quebra-psd">pequenos momentos que unem o <br class="quebra-psd">país todos os dias.</p>
     </li>
     <li class="motivo">
-      <h3 class="motivo__titulo">Porque ninguém cresce sem <br class="quebra-psd">alguma memória com ele.</h3>
-      <p class="motivo__texto">Tem sempre alguém que lembra do <br class="quebra-psd">pão quentinho chegando em casa.</p>
+      <h3 class="motivo__titulo">Porque toda família tem <br class="quebra-psd">uma lembrança com ele.</h3>
+      <p class="motivo__texto">Do café da manhã ao pão <br class="quebra-psd">quentinho da padaria da esquina, <br class="quebra-psd">o pão francês vive nas memórias <br class="quebra-psd">afetivas de diferentes gerações.</p>
     </li>
     <li class="motivo">
-      <h3 class="motivo__titulo">Porque ele também conta <br class="quebra-psd">a história de quem faz <br class="quebra-psd">o Brasil acontecer.</h3>
-      <p class="motivo__texto">Dos padeiros que acordam antes <br class="quebra-psd">do sol às padarias que fazem <br class="quebra-psd">parte da rotina de cada bairro.</p>
+      <h3 class="motivo__titulo">Porque existe um saber <br class="quebra-psd">por trás de cada fornada.</h3>
+      <p class="motivo__texto">Cada pão carrega técnicas, <br class="quebra-psd">conhecimento e dedicação <br class="quebra-psd">transmitidos entre profissionais <br class="quebra-psd">que mantêm viva a tradição <br class="quebra-psd">da panificação.</p>
     </li>
     <li class="motivo">
-      <h3 class="motivo__titulo">Porque alguns símbolos <br class="quebra-psd">não precisam de <br class="quebra-psd">apresentação.</h3>
-      <p class="motivo__texto">Basta colocar um pão francês na <br class="quebra-psd">mesa que todo brasileiro entende.</p>
+      <h3 class="motivo__titulo">Porque seu valor vai além <br class="quebra-psd">da mesa.</h3>
+      <p class="motivo__texto">Além de alimentar milhões de <br class="quebra-psd">brasileiros, ele movimenta padarias, <br class="quebra-psd">gera empregos e fortalece a <br class="quebra-psd">economia local em todo o país.</p>
     </li>
   </ul>
 
   <a class="botao botao--amarelo motivos__cta" href="#assinar" data-abre-modal>Quero apoiar esse movimento</a>
 </section>
 
-<!-- BLOCO 5 · linha do tempo -->
 <section class="linha">
   <h2 class="linha__titulo">
-    <img src="assets/linha-do-tempo/titulo-essa-historia-ja-comecou.png" alt="Essa história já começou">
+    <img loading="lazy" decoding="async" src="assets/linha-do-tempo/titulo-essa-historia-ja-comecou.png" alt="Essa história já começou">
   </h2>
   <p class="linha__subtitulo">Agora ela precisa de mais gente.</p>
 
   <div class="linha__trilho">
     <ol class="linha__etapas">
       <li class="etapa">
-        <div class="etapa__disco"><img src="assets/linha-do-tempo/icon-pedido.png" alt="" aria-hidden="true"></div>
-        <h3 class="etapa__nome">Pedido protocolado</h3>
-        <img class="etapa__check" src="assets/linha-do-tempo/icon-check.png" alt="Etapa concluída">
-      </li>
-      <li class="etapa">
-        <div class="etapa__disco"><img src="assets/linha-do-tempo/icon-dossie.png" alt="" aria-hidden="true"></div>
+        <div class="etapa__disco"><img loading="lazy" decoding="async" src="assets/linha-do-tempo/icon-dossie.png" alt="" aria-hidden="true"></div>
         <h3 class="etapa__nome">Dossiê desenvolvido</h3>
-        <img class="etapa__check" src="assets/linha-do-tempo/icon-check.png" alt="Etapa concluída">
+        <img loading="lazy" decoding="async" class="etapa__check" src="assets/linha-do-tempo/icon-check.png" alt="Etapa concluída">
       </li>
       <li class="etapa">
-        <div class="etapa__disco"><img src="assets/linha-do-tempo/icon-entidades.png" alt="" aria-hidden="true"></div>
+        <div class="etapa__disco"><img loading="lazy" decoding="async" src="assets/linha-do-tempo/icon-pedido.png" alt="" aria-hidden="true"></div>
+        <h3 class="etapa__nome">Pedido protocolado*</h3>
+        <img loading="lazy" decoding="async" class="etapa__check" src="assets/linha-do-tempo/icon-check.png" alt="Etapa concluída">
+      </li>
+      <li class="etapa">
+        <div class="etapa__disco"><img loading="lazy" decoding="async" src="assets/linha-do-tempo/icon-entidades.png" alt="" aria-hidden="true"></div>
         <h3 class="etapa__nome">Entidades parceiras</h3>
-        <img class="etapa__check" src="assets/linha-do-tempo/icon-check.png" alt="Etapa concluída">
+        <img loading="lazy" decoding="async" class="etapa__check" src="assets/linha-do-tempo/icon-check.png" alt="Etapa concluída">
       </li>
       <li class="etapa etapa--destaque">
-        <div class="etapa__disco"><img src="assets/linha-do-tempo/icon-assinatura.png" alt="" aria-hidden="true"></div>
+        <div class="etapa__disco"><img loading="lazy" decoding="async" src="assets/linha-do-tempo/icon-assinatura.png" alt="" aria-hidden="true"></div>
         <h3 class="etapa__nome">Sua assinatura</h3>
         <a class="etapa__botao" href="#assinar" data-abre-modal>Assinar</a>
       </li>
     </ol>
   </div>
+  <p class="linha__nota">*Instituto IPHAN - Instituto do Patrimônio Histórico e Artístico Nacional</p>
 </section>
 
-<!-- BLOCO 6 · apoio -->
 <section class="apoio">
   <div class="apoio__dots" aria-hidden="true"></div>
   <div class="apoio__texto">
     <h2 class="apoio__titulo">
-      <img src="assets/apoio/titulo-toda-historia-precisa-de-quem-apoie.png" alt="Toda história precisa de quem a apoie">
+      <img loading="lazy" decoding="async" src="assets/apoio/titulo-toda-historia-precisa-de-quem-apoie.png" alt="Toda história precisa de quem a apoie">
     </h2>
-    <p>Se o pão francês também faz parte da sua <br class="quebra-psd">história, faça parte desta também.</p>
-    <p class="apoio__reforco"><strong>Sua assinatura fortalece o pedido de <br class="quebra-psd">reconhecimento como Patrimônio Cultural <br class="quebra-psd">Imaterial do Brasil.</strong></p>
+    <p>Presente nas mesas, memórias e tradições <br class="quebra-psd">dos brasileiros, o pão francês já faz parte da <br class="quebra-psd">nossa história. Agora, você pode ajudar a <br class="quebra-psd">reconhecer oficialmente sua importância <br class="quebra-psd">cultural.</p>
+    <p class="apoio__reforco"><strong>Sua assinatura fortalece o pedido de <br class="quebra-psd">reconhecimento do pão francês como <br class="quebra-psd">Patrimônio Cultural Imaterial do Brasil.</strong></p>
     <a class="botao botao--azul" href="#assinar" data-abre-modal>Quero apoiar esse movimento</a>
   </div>
-  <img class="apoio__foto" src="assets/apoio/familia-mesa.jpg"
+  <img loading="lazy" decoding="async" class="apoio__foto" src="assets/apoio/familia-mesa.jpg"
        alt="Família reunida à mesa da cozinha com uma cesta de pães franceses">
 </section>
 
-<!-- BLOCO 7 · depoimentos -->
 <section class="depoimentos">
   <h2 class="depoimentos__titulo">
-    <img src="assets/depoimentos/titulo-tem-uma-historia.png" alt="Tem uma história com o pão francês?">
+    <img loading="lazy" decoding="async" src="assets/depoimentos/titulo-tem-uma-historia.png" alt="Tem uma história com o pão francês?">
   </h2>
   <p class="depoimentos__chamada">Conte nas redes usando <strong>#OPãoQueJuntaOBrasil</strong></p>
 
   <ul class="depoimentos__lista">
     <li class="depoimento">
-      <img class="depoimento__aspas" src="assets/depoimentos/icon-aspas.png" alt="" aria-hidden="true">
+      <img loading="lazy" decoding="async" class="depoimento__aspas" src="assets/depoimentos/icon-aspas.png" alt="" aria-hidden="true">
       <blockquote class="depoimento__texto">Todo domingo meu pai <br class="quebra-psd">chegava com pão quentinho.”</blockquote>
       <figcaption class="depoimento__autor">
-        <img src="assets/depoimentos/avatar-rodrigo.png" alt="">@Rodrigo
+        <img loading="lazy" decoding="async" src="assets/depoimentos/avatar-rodrigo.png" alt="">@Rodrigo
       </figcaption>
     </li>
     <li class="depoimento">
-      <img class="depoimento__aspas" src="assets/depoimentos/icon-aspas.png" alt="" aria-hidden="true">
+      <img loading="lazy" decoding="async" class="depoimento__aspas" src="assets/depoimentos/icon-aspas.png" alt="" aria-hidden="true">
       <blockquote class="depoimento__texto">Na minha cidade ele <br class="quebra-psd">chama cacetinho.”</blockquote>
       <figcaption class="depoimento__autor">
-        <img src="assets/depoimentos/avatar-marcela.png" alt="">@Marcela
+        <img loading="lazy" decoding="async" src="assets/depoimentos/avatar-marcela.png" alt="">@Marcela
       </figcaption>
     </li>
     <li class="depoimento">
-      <img class="depoimento__aspas" src="assets/depoimentos/icon-aspas.png" alt="" aria-hidden="true">
+      <img loading="lazy" decoding="async" class="depoimento__aspas" src="assets/depoimentos/icon-aspas.png" alt="" aria-hidden="true">
       <blockquote class="depoimento__texto">Minha avó dizia que pão <br class="quebra-psd">francês só prestava quente.”</blockquote>
       <figcaption class="depoimento__autor">
-        <img src="assets/depoimentos/avatar-jose.png" alt="">@José
+        <img loading="lazy" decoding="async" src="assets/depoimentos/avatar-jose.png" alt="">@José
       </figcaption>
     </li>
   </ul>
@@ -233,9 +1229,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a class="botao botao--amarelo depoimentos__cta" href="#form-rodape" data-rola-para="#form-rodape">Quero apoiar esse movimento</a>
 </section>
 
-<!-- BLOCO 8 · FAQ -->
 <section class="faq">
-  <h2 class="faq__titulo"><img src="assets/faq/titulo-faq.png" alt="FAQ"></h2>
+  <h2 class="faq__titulo"><img loading="lazy" decoding="async" src="assets/faq/titulo-faq.png" alt="FAQ"></h2>
 
   <ul class="faq__lista">
     <li class="faq__item">
@@ -306,19 +1301,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
-<!-- BLOCO 9 · assinatura -->
 <footer class="assinatura">
-  <img class="assinatura__divisor" src="assets/assinatura/icone-pao-divisor.png" alt="" aria-hidden="true">
+  <img loading="lazy" decoding="async" class="assinatura__divisor" src="assets/assinatura/icone-pao-divisor.png" alt="" aria-hidden="true">
   <div class="assinatura__dots" aria-hidden="true"></div>
 
   <div class="assinatura__texto">
-    <img class="assinatura__adorno" src="assets/assinatura/adorno.png" alt="" aria-hidden="true">
+    <img loading="lazy" decoding="async" class="assinatura__adorno" src="assets/assinatura/adorno.png" alt="" aria-hidden="true">
     <h2 class="assinatura__titulo">
-      <img src="assets/assinatura/titulo-o-pao-que-junta-o-brasil-merece.png" alt="O pão que junta o Brasil merece seu reconhecimento">
-      <img class="assinatura__linha" src="assets/assinatura/linha-sublinhado.png" alt="" aria-hidden="true">
+      <img loading="lazy" decoding="async" src="assets/assinatura/titulo-o-pao-que-junta-o-brasil-merece.png" alt="O pão que junta o Brasil merece seu reconhecimento">
+      <img loading="lazy" decoding="async" class="assinatura__linha" src="assets/assinatura/linha-sublinhado.png" alt="" aria-hidden="true">
     </h2>
     <p>Vamos colocar essa história no lugar <br class="quebra-psd">que ela merece? <strong>Assine a petição</strong> e <br class="quebra-psd">ajude a reconhecer oficialmente um <br class="quebra-psd">dos maiores símbolos da nossa <br class="quebra-psd">cultura alimentar.</p>
-    <img class="assinatura__logo" src="assets/assinatura/logo-bunge.svg" alt="Bunge Profissional">
+    <img loading="lazy" decoding="async" class="assinatura__logo" src="assets/assinatura/logo-bunge.png" alt="Bunge Profissional">
   </div>
 
   <form class="form" id="form-rodape" novalidate>
@@ -335,18 +1329,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <p class="form__lgpd">Em atendimento aos princípios regulados na Lei Geral de Proteção de Dados, lei n° 13.709/2018, autorizo o tratamento dos meus dados pessoais, em respeito <br class="quebra-psd">aos interesses e finalidades aqui propostos.</p>
 
-    <label class="form__aceite"><input type="checkbox" name="aceite" required><span class="form__marca"></span>Aceito</label>
 
     <button class="form__botao" type="submit">Assine a petição</button>
 
-    <p class="form__contador">
-      <img src="assets/assinatura/icone-pessoas.png" alt="" aria-hidden="true">
-      <span>
-        <!-- {{XX}}: placeholder do PSD — trocar pelo total dinâmico -->
-        <strong>+ {{XX}} mil pessoas</strong>
-        <em>já apoiam esse movimento</em>
-      </span>
-    </p>
   </form>
 </footer>
 
@@ -356,7 +1341,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
     </button>
 
-    <h2 class="modal__titulo" id="modal-titulo">Assine a petição</h2>
+    <h2 class="modal__titulo" id="modal-titulo">
+      <img src="assets/popup/titulo-assine-a-peticao.png" alt="Assine a petição">
+    </h2>
 
     <form class="form form--modal" id="form-modal" novalidate>
       <div class="form__campos">
@@ -372,22 +1359,176 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p class="form__lgpd">Em atendimento aos princípios regulados na Lei Geral de Proteção de Dados, lei n° 13.709/2018, autorizo o tratamento dos meus dados pessoais, em respeito aos interesses e finalidades aqui propostos.</p>
 
-      <label class="form__aceite"><input type="checkbox" name="aceite" required><span class="form__marca"></span>Aceito</label>
-
       <button class="form__botao" type="submit">Assine a petição</button>
-
-      <p class="form__contador">
-        <img src="assets/hero/icone-pessoas.png" alt="" aria-hidden="true">
-        <span>
-          <!-- {{XX}}: placeholder do PSD — trocar pelo total dinâmico -->
-          <strong>+ {{XX}} mil pessoas</strong>
-          <em>já apoiam esse movimento</em>
-        </span>
-      </p>
     </form>
   </div>
 </dialog>
 
-<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var DIALOG_AUTOCLOSE_DELAY_MS = 2200;
+  var FOCUS_AFTER_SCROLL_DELAY_MS = 600;
+
+  var VALIDATION_MESSAGES = {
+    missingName: 'Preencha seu nome completo.',
+    invalidEmail: 'Informe um e-mail válido.'
+  };
+  var SUBMIT_SUCCESS_MESSAGE = 'Assinatura registrada. Obrigado por apoiar esse movimento!';
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+
+
+  var faqQuestionButtons = document.querySelectorAll('.faq__pergunta');
+
+  function collapseFaqQuestion(questionButton) {
+    questionButton.setAttribute('aria-expanded', 'false');
+    var answerPanel = document.getElementById(questionButton.getAttribute('aria-controls'));
+    if (answerPanel) answerPanel.hidden = true;
+  }
+
+  Array.prototype.forEach.call(faqQuestionButtons, function (questionButton) {
+    questionButton.addEventListener('click', function () {
+      var wasExpanded = questionButton.getAttribute('aria-expanded') === 'true';
+      var answerPanel = document.getElementById(questionButton.getAttribute('aria-controls'));
+
+      Array.prototype.forEach.call(faqQuestionButtons, function (otherButton) {
+        if (otherButton !== questionButton) collapseFaqQuestion(otherButton);
+      });
+
+      questionButton.setAttribute('aria-expanded', String(!wasExpanded));
+      if (answerPanel) answerPanel.hidden = wasExpanded;
+    });
+  });
+
+
+  var signatureDialog = document.getElementById('modal-assinatura');
+  var dialogIsSupported = !!signatureDialog && typeof signatureDialog.showModal === 'function';
+  var lastDialogTrigger = null;
+
+  function openSignatureDialog(triggerElement) {
+    if (!dialogIsSupported) return false;
+    lastDialogTrigger = triggerElement;
+    signatureDialog.showModal();
+    document.body.classList.add('modal-aberto');
+    var firstField = signatureDialog.querySelector('.form__input');
+    if (firstField) firstField.focus();
+    return true;
+  }
+
+  function closeSignatureDialog() {
+    if (!dialogIsSupported || !signatureDialog.open) return;
+    signatureDialog.close();
+    document.body.classList.remove('modal-aberto');
+  }
+
+  if (dialogIsSupported) {
+    var dialogPanel = signatureDialog.querySelector('.modal__caixa');
+
+    signatureDialog.addEventListener('close', function () {
+      document.body.classList.remove('modal-aberto');
+      if (lastDialogTrigger) {
+        lastDialogTrigger.focus();
+        lastDialogTrigger = null;
+      }
+    });
+
+    signatureDialog.addEventListener('click', function (clickEvent) {
+      if (dialogPanel && !dialogPanel.contains(clickEvent.target)) closeSignatureDialog();
+    });
+
+    Array.prototype.forEach.call(
+      signatureDialog.querySelectorAll('[data-modal-fechar]'),
+      function (closeButton) {
+        closeButton.addEventListener('click', closeSignatureDialog);
+      }
+    );
+  }
+
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[data-abre-modal]'),
+    function (dialogTriggerLink) {
+      dialogTriggerLink.addEventListener('click', function (clickEvent) {
+        if (openSignatureDialog(dialogTriggerLink)) clickEvent.preventDefault();
+      });
+    }
+  );
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[data-rola-para]'),
+    function (scrollTriggerLink) {
+      scrollTriggerLink.addEventListener('click', function (clickEvent) {
+        var scrollTargetForm = document.querySelector(
+          scrollTriggerLink.getAttribute('data-rola-para')
+        );
+        if (!scrollTargetForm) return;
+
+        clickEvent.preventDefault();
+        scrollTargetForm.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
+
+        var nameField = scrollTargetForm.querySelector('[name="nome"]');
+        if (!nameField) return;
+
+        if (prefersReducedMotion) {
+          nameField.focus({ preventScroll: true });
+        } else {
+          setTimeout(function () {
+            nameField.focus({ preventScroll: true });
+          }, FOCUS_AFTER_SCROLL_DELAY_MS);
+        }
+      });
+    }
+  );
+
+
+  function getValidationError(petitionForm) {
+    var nameInput = petitionForm.querySelector('[name="nome"]');
+    var emailInput = petitionForm.querySelector('[name="email"]');
+
+    if (!nameInput.value.trim()) return VALIDATION_MESSAGES.missingName;
+    if (!EMAIL_PATTERN.test(emailInput.value)) return VALIDATION_MESSAGES.invalidEmail;
+    return '';
+  }
+
+  function getStatusMessageElement(petitionForm) {
+    var statusMessage = petitionForm.querySelector('.form__aviso');
+    if (!statusMessage) {
+      statusMessage = document.createElement('p');
+      statusMessage.className = 'form__aviso';
+      statusMessage.setAttribute('role', 'status');
+      petitionForm.appendChild(statusMessage);
+    }
+    return statusMessage;
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.form'), function (petitionForm) {
+    petitionForm.addEventListener('submit', function (submitEvent) {
+      submitEvent.preventDefault();
+
+      var validationError = getValidationError(petitionForm);
+      var statusMessage = getStatusMessageElement(petitionForm);
+
+      if (validationError) {
+        statusMessage.textContent = validationError;
+        return;
+      }
+
+      statusMessage.textContent = SUBMIT_SUCCESS_MESSAGE;
+      petitionForm.reset();
+
+      var wasSubmittedInsideDialog =
+        dialogIsSupported && signatureDialog.open && signatureDialog.contains(petitionForm);
+
+      if (wasSubmittedInsideDialog) {
+        setTimeout(closeSignatureDialog, DIALOG_AUTOCLOSE_DELAY_MS);
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

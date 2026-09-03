@@ -511,16 +511,24 @@ body.modal-aberto { overflow: hidden; }
 .mapa__adorno { width: calc(145 * var(--s)); margin-top: calc(74 * var(--s)); }
 
 @media (max-width: 1023px) {
-  .mapa { padding: 64px 20px 56px; }
+  .mapa { padding: 64px clamp(12px, 5vw, 20px) 56px; }
   .mapa__trigo { display: none; }
 
   .mapa__titulo-a { width: min(560px, 100%); }
   .mapa__titulo-b { width: min(610px, 100%); margin-top: 8px; }
   .mapa__subtitulo { margin-top: 26px; font-size: clamp(18px, 4.4vw, 30px); }
 
-  .mapa__figura { width: min(520px, 100%); margin: 32px 0 0; --mp: calc(min(520px, 100vw - 40px) / 770); }
+  .mapa__figura {
+    container-type: inline-size;
+    width: min(520px, calc(100% + 2 * clamp(12px, 5vw, 20px)));
+    margin: 32px 0 0;
+  }
+  .mapa__pin { --mp: calc(min(520px, 100vw - 24px) / 770); }
+  @supports (container-type: inline-size) {
+    .mapa__pin { --mp: calc(100cqw / 770); }
+  }
   .mapa__pin::after { width: calc(80 * var(--mp)); height: calc(60 * var(--mp)); margin-top: calc(10 * var(--mp)); }
-  .mapa__nome { font-size: max(10px, calc(21 * var(--mp))); line-height: 1.1; }
+  .mapa__nome { font-size: max(9px, calc(21 * var(--mp))); line-height: 1.1; }
   .mapa__adorno { width: 110px; margin-top: 44px; }
 }
 .motivos {

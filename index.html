@@ -64,6 +64,13 @@ body {
 }
 
 section, header, footer { position: relative; }
+.fold-pao { position: relative; z-index: 6; height: 0; }
+.fold-pao img {
+  position: absolute;
+  left: calc(904 * var(--s));
+  top: calc(-43 * var(--s));
+  width: calc(116 * var(--s));
+}
 
 .dots {
   position: absolute;
@@ -205,6 +212,10 @@ input:focus-visible + .form__marca { outline: calc(3 * var(--s)) solid var(--azu
 
 @media (max-width: 1023px) { .quebra-psd { display: none; } }
 
+@media (max-width: 1023px) {
+  .fold-pao img { left: 50%; top: -33px; width: 90px; transform: translateX(-50%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
@@ -212,7 +223,7 @@ input:focus-visible + .form__marca { outline: calc(3 * var(--s)) solid var(--azu
 
 @media (max-width: 1023px) {
   :root { --s: 1px; }
-  body { background-size: 100% 100%; }
+  body { background-size: 100% auto; }
 
   .botao { width: min(587px, 90vw); height: 60px; font-size: clamp(15px, 3.6vw, 22px); border-radius: 30px; }
 
@@ -341,7 +352,7 @@ body.modal-aberto { overflow: hidden; }
     height: auto;
     object-fit: initial;
   }
-  .hero__fundo { order: 5; width: min(560px, 100%); margin: 28px auto 0; }
+  .hero__fundo { order: 5; flex: none; width: calc(100% + 40px); max-width: none; margin: 28px -20px 0; }
 
   .hero__conteudo { display: contents; }
   .hero__adorno-topo { order: 1; }
@@ -359,23 +370,20 @@ body.modal-aberto { overflow: hidden; }
   .hero__adorno-topo { width: min(340px, 100%); margin: 0 auto 4px; }
   .hero__titulo      { width: min(520px, 100%); margin: 0 auto; }
   .hero__titulo img  { width: 100%; }
-  .hero__logo        { width: 150px; margin: 18px auto 0; }
+  .hero__logo        { width: 150px; height: auto; margin: 18px auto 0; }
   .hero__adorno-base { width: 78px; margin: 10px auto 0; }
 
   .hero .form { margin: 30px auto 0; }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .hero__fundo     { aspect-ratio: 16 / 13; }
+  .hero__fundo img { height: 100%; object-fit: cover; }
 }
 .historia {
   height: calc(899 * var(--s));
   background: var(--azul);
   overflow: hidden;
-}
-
-.historia__divisor {
-  position: absolute;
-  z-index: 4;
-  left: calc(904 * var(--s));
-  top: calc(-27 * var(--s));
-  width: calc(116 * var(--s));
 }
 
 .historia__dots {
@@ -424,7 +432,6 @@ body.modal-aberto { overflow: hidden; }
     flex-direction: column;
     padding: 60px 20px 0;
   }
-  .historia__divisor { left: 50%; top: -22px; width: 90px; transform: translateX(-50%); }
   .historia__dots { background-size: 16px 16px;
                     background-image: radial-gradient(circle, rgba(255,255,255,.22) 1.8px, transparent 2.4px); }
   .historia__trigo { display: none; }
@@ -511,9 +518,9 @@ body.modal-aberto { overflow: hidden; }
   .mapa__titulo-b { width: min(610px, 100%); margin-top: 8px; }
   .mapa__subtitulo { margin-top: 26px; font-size: clamp(18px, 4.4vw, 30px); }
 
-  .mapa__figura { width: min(520px, 100%); margin: 32px 0 0; }
-  .mapa__pin::after { width: 56px; height: 42px; margin-top: 8px; }
-  .mapa__nome { font-size: clamp(11px, 2.6vw, 15px); }
+  .mapa__figura { width: min(520px, 100%); margin: 32px 0 0; --mp: calc(min(520px, 100vw - 40px) / 770); }
+  .mapa__pin::after { width: calc(80 * var(--mp)); height: calc(60 * var(--mp)); margin-top: calc(10 * var(--mp)); }
+  .mapa__nome { font-size: max(10px, calc(21 * var(--mp))); line-height: 1.1; }
   .mapa__adorno { width: 110px; margin-top: 44px; }
 }
 .motivos {
@@ -706,26 +713,83 @@ body.modal-aberto { overflow: hidden; }
 .etapa__botao:hover { filter: brightness(1.08); }
 
 @media (max-width: 1023px) {
-  .linha { height: auto; padding: 56px 0; }
-  .linha__titulo { width: min(520px, calc(100% - 40px)); }
-  .linha__subtitulo { width: calc(100% - 40px); margin-top: 20px; font-size: clamp(16px, 4vw, 24px); }
+  .linha { height: auto; padding: 56px clamp(12px, 5vw, 20px); }
+  .linha__titulo { width: min(520px, 100%); }
+  .linha__subtitulo { width: 100%; margin-top: 20px; font-size: clamp(16px, 4vw, 24px); }
 
-  .linha__trilho {
-    display: block;
-    width: 100%;
-    margin-top: 36px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-  }
+  .linha__trilho { display: block; width: min(420px, 100%); margin-top: 36px; }
+
   .linha__etapas {
-    --s: max(0.36px, calc((100vw - 40px) / 1716));
+    --disco: clamp(46px, 16vw, 64px);
+    --pad:   clamp(4px, 3vw, 16px);
+    --gap:   clamp(8px, 3.4vw, 16px);
+
+    position: relative;
     left: 0;
-    margin: 0 auto;
-    padding: 0 calc(20 * var(--s));
-    box-sizing: content-box;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
+  .linha__etapas::before,
+  .linha__etapas::after { display: none; }
+
+  .etapa {
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap);
+    padding: 0 0 0 var(--pad);
+    min-height: calc(var(--disco) + 8px);
+  }
+  .etapa:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--pad) + var(--disco) / 2);
+    top: calc(50% + var(--disco) / 2 + 2px);
+    bottom: -12px;
+    width: 4px;
+    margin-left: -2px;
+    background: var(--branco);
+  }
+
+  .etapa__disco { flex: none; width: var(--disco); height: var(--disco); }
+  .etapa__disco img { height: calc(var(--disco) * .5); }
+  .etapa:nth-child(3) .etapa__disco img { height: calc(var(--disco) * .44); }
+
+  .etapa__nome {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    margin-top: 0;
+    font-size: clamp(13px, 4vw, 20px);
+    line-height: 1.16;
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+  .etapa__check { flex: none; width: clamp(24px, 8vw, 32px); margin: 0 var(--pad) 0 0; }
+
+  .etapa--destaque {
+    width: 100%;
+    justify-self: stretch;
+    min-height: calc(var(--disco) + 20px);
+    padding: 10px var(--pad);
+    border-radius: 42px;
+  }
+  .etapa__botao {
+    flex: none;
+    width: clamp(84px, 28vw, 116px);
+    height: clamp(36px, 11.5vw, 44px);
+    margin-top: 0;
+    border-radius: 22px;
+    font-size: clamp(13px, 4.2vw, 17px);
+  }
+
+  .linha__nota { margin-top: 34px; font-size: clamp(13px, 3.4vw, 18px); }
 }
 .apoio {
   height: calc(795 * var(--s));
@@ -877,14 +941,15 @@ body.modal-aberto { overflow: hidden; }
   .depoimento {
     width: 100%;
     height: auto;
-    min-height: 170px;
-    padding: 30px 26px 0;
+    min-height: 0;
+    padding: 24px 26px 0;
     border-width: 5px;
     border-radius: 28px;
   }
-  .depoimento__aspas { left: 26px; top: 24px; width: 20px; }
+  .depoimento__aspas { position: static; align-self: flex-start; width: 22px; margin: 0 0 12px; }
+  .depoimento__texto { width: 100%; }
   .depoimento__texto { font-size: clamp(16px, 4vw, 22px); }
-  .depoimento__autor { margin-bottom: 16px; font-size: 15px; }
+  .depoimento__autor { margin-top: 18px; margin-bottom: 18px; font-size: 15px; }
   .depoimento__autor img { width: 34px; height: 34px; }
 
   .depoimentos__cta { margin-top: 36px; }
@@ -964,14 +1029,6 @@ body.modal-aberto { overflow: hidden; }
   overflow: hidden;
 }
 
-.assinatura__divisor {
-  position: absolute;
-  z-index: 4;
-  left: calc(904 * var(--s));
-  top: calc(-42 * var(--s));
-  width: calc(116 * var(--s));
-}
-
 .assinatura__dots {
   position: absolute;
   inset: 0;
@@ -1011,7 +1068,14 @@ body.modal-aberto { overflow: hidden; }
 }
 .assinatura__texto p strong { font-weight: 600; }
 
-.assinatura__logo { width: calc(211 * var(--s)); height: calc(69 * var(--s)); margin-top: calc(49 * var(--s)); }
+.assinatura__logo {
+  position: absolute;
+  z-index: 2;
+  left: calc(265 * var(--s));
+  top: calc(636 * var(--s));
+  width: calc(211 * var(--s));
+  height: calc(69 * var(--s));
+}
 
 .assinatura .form {
   position: absolute;
@@ -1028,7 +1092,6 @@ body.modal-aberto { overflow: hidden; }
     align-items: center;
     padding: 60px 20px 56px;
   }
-  .assinatura__divisor { left: 50%; top: -32px; width: 90px; transform: translateX(-50%); }
   .assinatura__dots { background-size: 16px 16px;
                       background-image: radial-gradient(circle, var(--amarelo-luz) 2px, transparent 2.6px); }
 
@@ -1037,7 +1100,7 @@ body.modal-aberto { overflow: hidden; }
   .assinatura__titulo { width: min(430px, 100%); margin-top: 16px; }
   .assinatura__linha  { left: 26%; bottom: -14px; width: 65%; }
   .assinatura__texto p { margin-top: 40px; width: 100%; font-size: clamp(16px, 4.1vw, 24px); }
-  .assinatura__logo { width: 160px; margin-top: 28px; }
+  .assinatura__logo { position: static; width: 160px; height: auto; margin: 40px auto 0; }
 
   .assinatura .form { position: static; z-index: 2; margin-top: 40px; }
 }
@@ -1086,8 +1149,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main>
 
+<div class="fold-pao" aria-hidden="true">
+  <img loading="lazy" decoding="async" src="assets/historia/icone-pao-divisor.png" alt="">
+</div>
+
 <section class="historia">
-  <img loading="lazy" decoding="async" class="historia__divisor" src="assets/historia/icone-pao-divisor.png" alt="" aria-hidden="true">
   <div class="historia__dots" aria-hidden="true"></div>
   <img loading="lazy" decoding="async" class="historia__trigo" src="assets/historia/trigo-esquerda.png" alt="" aria-hidden="true">
   <div class="historia__texto">
@@ -1301,8 +1367,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
+<div class="fold-pao" aria-hidden="true">
+  <img loading="lazy" decoding="async" src="assets/assinatura/icone-pao-divisor.png" alt="">
+</div>
+
 <footer class="assinatura">
-  <img loading="lazy" decoding="async" class="assinatura__divisor" src="assets/assinatura/icone-pao-divisor.png" alt="" aria-hidden="true">
   <div class="assinatura__dots" aria-hidden="true"></div>
 
   <div class="assinatura__texto">
@@ -1312,7 +1381,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img loading="lazy" decoding="async" class="assinatura__linha" src="assets/assinatura/linha-sublinhado.png" alt="" aria-hidden="true">
     </h2>
     <p>Vamos colocar essa história no lugar <br class="quebra-psd">que ela merece? <strong>Assine a petição</strong> e <br class="quebra-psd">ajude a reconhecer oficialmente um <br class="quebra-psd">dos maiores símbolos da nossa <br class="quebra-psd">cultura alimentar.</p>
-    <img loading="lazy" decoding="async" class="assinatura__logo" src="assets/assinatura/logo-bunge.png" alt="Bunge Profissional">
   </div>
 
   <form class="form" id="form-rodape" novalidate>
@@ -1333,6 +1401,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="form__botao" type="submit">Assine a petição</button>
 
   </form>
+
+  <img loading="lazy" decoding="async" class="assinatura__logo" src="assets/assinatura/logo-bunge.png" alt="Bunge Profissional">
 </footer>
 
 <dialog class="modal" id="modal-assinatura" aria-labelledby="modal-titulo">
